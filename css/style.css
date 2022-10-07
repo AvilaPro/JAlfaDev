@@ -45,7 +45,7 @@ header img{
 header > div:last-child{
   display: flex;
   color: white;
-  flex-basis: 15%;
+  flex-basis: 25%;
   justify-content: space-around;
 }
 header > div:last-child > div{
@@ -332,32 +332,60 @@ main{
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-
+  #menu{
+    display: none;
+  }
+  #news{
+    display: none;
+  }
+  main{
+    left: 0;
+    width: 100%;
+  }
+  header > div:last-child{
+    flex-basis: 50%;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
+  #products{
+    width: 100%;
+  }
+  #news{
+    display: none;
+  }
+  header > div:last-child{
+    flex-basis: 35%;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-
+  header > div:last-child{
+    flex-basis: 35%;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
   #products{
     width: 66%;
   }
   #news{
     width: 34%;
   }
-}
+} */
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
+  #products{
+    width: 66%;
+  }
+  #news{
+    width: 34%;
+    display: flex;
+  }
 }
 
 /* Mostrando la query de medio para impresion */
