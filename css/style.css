@@ -1,0 +1,375 @@
+@import url('./importado.css') print;
+
+*{
+  box-sizing: border-box;
+}
+/* h1{
+  color: rgb(28, 171, 207);
+} */
+
+/* .col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;} */
+
+body{
+  margin: 0;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;;
+}
+
+/*HEADER */
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3%;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #E60012;
+  z-index: 1000;
+}
+header img{
+  width: 96px;
+  height: 24px;
+}
+header > div:last-child{
+  display: flex;
+  color: white;
+  flex-basis: 15%;
+  justify-content: space-around;
+}
+header > div:last-child > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header > div:last-child > div > span{
+  font-size: 12px;
+}
+
+/*FIN HEADER*/
+
+
+/*MENU LATERAL*/
+#menu{
+  display: flex;
+  flex-direction: column;
+  width: 88px;
+  height: calc(100vh - 70px);
+  background-color: #E60012;
+  position: fixed;
+  left: 0;
+  top: 70px;
+}
+#menu > div{
+  flex: 0 1 100%;
+  height: 14%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  border-top: solid 1px #710b13;
+}
+#menu > div:hover{
+  background-color: #e84e5bab;
+  cursor: pointer;
+}
+#menu > div svg{
+  font-size: 32px;
+  fill: white;
+}
+#menu > div p{
+  text-align: center;
+  margin: 0;
+  font-size: 12px;
+}
+
+/*FINMENU LATERAL*/
+
+/*MAIN*/
+
+main{
+  display: flex;
+  position: relative;
+  left: 88px;
+  background-color: #F4F4F4;
+  /* top: 70px; */
+  /* background-color: aquamarine; */
+  /* height: 250px; */
+  width: calc(100% - 88px);
+  padding: 5px;
+}
+/**No se necesita porque ahora usaremos flex*/
+/* main > section{
+  display: inline-block;
+} */
+
+/*INICIO DE MAQUETA CONTENEDOR DE PRODUCTOS*/
+#products{
+  display: grid;
+  /* background-color: blue; */
+  /* height: 700px; */
+  /* Este ancho aplica siempre que sean pantallas de 991px o menos */
+  width: 100%;
+  grid-template-areas: "p1 p2 p3"
+                        "p4 p5 p6"
+                        "p7 p7 p6"
+                        "p8 p8 p8";
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: auto; */
+}
+#products > div{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: fill;
+  margin: 3px;
+  border-radius: 5px;
+  transition: transform box-shadow;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+#products > div:hover{
+  transform: translate(0, -10px);
+  box-shadow: 0 10px 25px rgb(69, 66, 66);
+  cursor: pointer;
+}
+#products > div > div{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: fill;
+  margin: 3px;
+  /* grid-gap: 3px 3px; */
+  /* grid-row-gap: 3px; */
+  /* grid-column-gap: 3px; */
+  border-radius: 5px;
+  transition: transform box-shadow;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+#products > div > div:hover{
+  transform: translate(0, -10px);
+  box-shadow: 0 10px 25px rgb(69, 66, 66);
+  cursor: pointer;
+}
+#products > div:first-child{
+  grid-area: p1;
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_Splatoon3_OutNow_esES.jpg");
+  aspect-ratio: 1;
+}
+#products > div:nth-child(2){
+  grid-area: p2;
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_MarioRabbidsSparksOfHope_ComingOctober_esES.jpg");
+  aspect-ratio: 1;
+}
+#products > div:nth-child(3){
+  grid-area: p3;
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_Bayonetta3_HomepageTeaser_ReleaseDate_esES.jpg");
+  aspect-ratio: 1;
+}
+#products > div:nth-child(4){
+  grid-area: p4;
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_EaSportsFifa23NintendoSwitchLegacyEdition_image600w.jpg");
+  aspect-ratio: 1;
+}
+#products > div:nth-child(5){
+  grid-area: p5;
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_PokemonScarletViolet_Combo_ReleaseDate_esES_image600w.jpg");
+  aspect-ratio: 1;
+}
+#products > div:nth-child(6){
+  grid-area: p6;
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/12_vertical_images/games_17/nintendo_switch_10/1x2_NSwitch_GameTrialsBanner_TheJackBoxPartyPack3_esES_image600w.jpg");
+  aspect-ratio: 1 / 2;
+}
+#products > div:nth-child(7){
+  grid-area: p7;
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_Persona5Royal_image1250w.jpg");
+  aspect-ratio: 2 / 1;
+}
+#products > div:nth-child(8){
+  grid-area: p8;
+  transition: none;
+}
+#products > div:nth-child(8):hover{
+  transform: none;
+  box-shadow: none;
+}
+#products > div:nth-child(8) > div:nth-child(1){
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/downloads/country_support_4/es_16/V1x2_Pokemon_EP_Preventa_image600w.jpg");
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
+}
+#products > div:nth-child(8) > div:nth-child(2){
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_Splatoon3_NewcomerNews2_image600w.jpg");
+  grid-column: 2 / 3;
+}
+#products > div:nth-child(8) > div:nth-child(3){
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/downloads/country_support_4/es_16/SQ_Splatoon3_Review_image600w.jpg");
+  grid-column: 3 / 4;
+}
+#products > div:nth-child(8) > div:nth-child(4){
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/downloads/country_support_4/es_16/H2x1_Bayonetta3_Preventa_image1250w.jpg");
+  grid-column: 2 / 4;
+}
+#products > div:nth-child(8) > div:nth-child(5){
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_Dorfromantik_image600w.jpg");
+  grid-column: 1 / 2;
+}
+#products > div:nth-child(8) > div:nth-child(6){
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_TheElderScrollsVSkyrimAnniversaryBundle_image600w.png");
+  grid-column: 2 / 3;
+}
+#products > div:nth-child(8) > div:nth-child(7){
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/12_vertical_images/games_17/nintendo_switch_10/1x2_NSwitch_MonsterHunterRiseSale_esES_image600w.jpg");
+  grid-column: 3 / 4;
+  grid-row: 3 / 5;
+}
+#products > div:nth-child(8) > div:nth-child(8){
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_MarioStrikersBattleLeagueFootball_UpdateTeasers_esES_image1250w.jpg");
+  grid-column: 1 / 3;
+}
+
+
+
+
+
+/**FIN CONTENEDOR DE PRODUCTOS*/
+
+/*NEWS*/
+#news{
+  /* background-color: chartreuse; */
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+}
+#titulo{
+  height: 34px !important;
+  padding: 12px !important;
+  background-color: white;
+  box-sizing: content-box !important;
+  display: flex;
+  align-items: center;
+}
+#titulo > div{
+  border-left: lightgrey 3px solid;
+  padding-left: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+  flex: 0 1 100% !important;
+}
+
+#news > div{
+  height: 18vh;
+  margin-bottom: 5px;
+  padding: 5px 5px 12px 5px;
+  background-color: white;
+  display: flex;
+}
+#news > div:hover{
+  cursor: pointer;
+}
+#news > div > div:first-child{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  flex: 0 1 25%;
+}
+#news > div:nth-child(2) > div:first-child{
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/others_4/nintendo_eshop_6/weekly_download_news/1x1_WeeklyDownloadNews_20220922_esES_image950w.jpg");
+}
+#news > div:nth-child(3) > div:first-child{
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/downloads/country_support_4/es_16/SQ_Bayonetta3_Preventa_image950w.jpg");
+}
+#news > div:nth-child(4) > div:first-child{
+  background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/others_4/nintendo_eshop_6/weekly_download_news/1x1_WeeklyDownloadNews_20220915_esES_image950w.jpg");
+}
+
+#news > div > div:last-child{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex: 0 1 75%;
+}
+#news > div > div:last-child h3,span,p{
+  margin: 0;
+}
+#news > div:hover > div:last-child h3{
+  text-decoration: underline;
+  cursor: pointer;
+}
+#news > div > div:last-child > span{
+  font-size: 0.75em;
+  color: lightgray;
+}
+#news > div > div:last-child p{
+  font-size: 0.85em;
+  color: rgb(96, 94, 94);
+}
+
+
+/*FIN NEWS*/
+
+
+
+/*Fin MAIN*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #products{
+    width: 66%;
+  }
+  #news{
+    width: 34%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Mostrando la query de medio para impresion */
+@media print {
+  h1{
+    color: red;
+  }
+}
+
+
+@media screen and (max-width: 425px){
+  
+}
+
+
