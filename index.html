@@ -9,7 +9,7 @@
   <title>JS ALFA</title>
 </head>
 <body>
-  <header>
+  <header onclick="alert('click en el header')">
     <div>
       <img src="./img/logo.png" alt="LogoNintendo" onclick="console.log('click simple')" ondrag="alert('lo arrastraste!')" ondblclick="console.log('dobleClick')" onmousewheel="console.log('boton de medio')">
     </div>
@@ -22,7 +22,7 @@
         <ion-icon name="heart-outline" size="large"></ion-icon>
         <span>Lista deseos</span>
       </div>
-      <div onclick="iniciarSesion()">
+      <div onclick="iniciarSesion(event)">
         <ion-icon name="person" size="large"></ion-icon>
         <span>Iniciar Sesion</span>
       </div>
@@ -80,6 +80,10 @@
         <div></div>
         <div></div>
       </div>
+      <form action="" method="get" onsubmit="evitarSubmit(event)">
+        <input type="text" placeholder="escribe algo..." name="nombre">
+        <input type="submit" value="Enviar">
+      </form>
     </section>
     <section id="news">
       <div id="titulo">

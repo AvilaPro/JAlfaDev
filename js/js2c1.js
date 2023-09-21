@@ -1,7 +1,9 @@
 var usuarios = ["mauricio", "elianny", "helena", "ronald", "jesus"];
 
 
-function iniciarSesion() {
+function iniciarSesion(ev) {
+    ev.stopPropagation();
+    console.log(ev);
     let auxUser;
     do {
         auxUser = prompt("Ingrese su nombre de usuario:");
@@ -16,5 +18,10 @@ function iniciarSesion() {
             }
         }
     } while (vacioONull(auxUser));
+}
+
+function evitarSubmit(e) {
+    e.preventDefault();
+    console.log(e);
 }
 
