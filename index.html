@@ -11,7 +11,7 @@
 <body>
   <header>
     <div>
-      <img src="./img/logo.png" alt="">
+      <img src="./img/logo.png" alt="LogoNintendo" onclick="console.log('click simple')" ondrag="alert('lo arrastraste!')" ondblclick="console.log('dobleClick')" onmousewheel="console.log('boton de medio')">
     </div>
     <div>
       <div>
@@ -22,7 +22,7 @@
         <ion-icon name="heart-outline" size="large"></ion-icon>
         <span>Lista deseos</span>
       </div>
-      <div>
+      <div onclick="iniciarSesion()">
         <ion-icon name="person" size="large"></ion-icon>
         <span>Iniciar Sesion</span>
       </div>
@@ -120,6 +120,9 @@
       </div>
     </section>
   </main>
+
+  <!-- SCRIPTS DE LA CLASE DE JAVASCRIPT NIVEL 2 -->
+  <script src="./js/js2c1.js"></script>
 
   <!-- SCRIPTS DE IONICONS -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
