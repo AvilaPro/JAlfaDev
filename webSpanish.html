@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Español</title>
+</head>
+<script>
+    function manejarApertura() {
+        if(window.opener != null){
+            document.body.innerHTML += '\n <button onclick="window.close()" style="background: red; color: white; border: none; padding: 10px; border-radius: 10px;">Cerrar</button><br><button onclick="window.opener.location=`https://www.nintendo.es`" style="background: green; color: white; border: none; padding: 10px; border-radius: 10px;">Cambiar index</button>'
+        }
+    }
+</script>
+<body onload="window.moveTo(`${screen.availWidth/2}`, 0); manejarApertura()">
+    <script>
+        function cambiarContenido(){
+            document.open();
+            document.write('<h1 style="color: blue">Elemento nuevo</h1>');
+            document.close();
+        }
+        function cambiarContenidoInner() {
+            let auxBody;    
+            let elNew = "\n <h1 style='color: red'>Elemento nuevo</h1>"
+            auxBody = document.body.innerHTML;
+            document.body.innerHTML = elNew.concat(' ', auxBody);
+            // document.body.innerHTML = "<h1 style='color: red'>Elemento nuevo</h1>"
+        }
+    </script>
+    <h1>Pagina web en español</h1>
+    <button onclick="window.location='./index.html'">Volver a home</button>
+    <button onclick="cambiarContenido()">Cambiar contenido con Write</button>
+    <button onclick="cambiarContenidoInner()">Cambiar contenido con InnerHTML</button>
+
+    
+</body>
+</html>

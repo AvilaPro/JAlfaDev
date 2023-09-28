@@ -8,7 +8,15 @@
   <link rel="stylesheet" href="./css/style.css">
   <title>JS ALFA</title>
 </head>
-<body>
+<body onscroll="
+console.log('outer: ' + window.outerHeight);
+console.log('inner: ' + window.innerHeight);
+console.log('screenY: ' + window.screenY);
+console.log('screen.width: ' + screen.width);
+console.log('screen.height: ' + screen.height);
+console.log('screen.availWidth: ' + screen.availWidth);
+console.log('screen.availHeight: ' + screen.availHeight);
+">
   <header onclick="alert('click en el header')">
     <div>
       <img src="./img/logo.png" alt="LogoNintendo" onclick="console.log('click simple')" ondrag="alert('lo arrastraste!')" ondblclick="console.log('dobleClick')" onmousewheel="console.log('boton de medio')">
@@ -58,6 +66,27 @@
     <div>
       <p style="font-size: 36px; font-weight: bold; ">...</p>
     </div>
+  </section>
+  <section id="js2cap5" style="width: 100%; display: flex; justify-content: space-around;">
+    <button onclick="window.location='https://www.nintendo.es'">Web Oficial</button>
+    <button onclick="window.print()">Imprimir pantalla</button>
+    <button onclick="if (window.navigator.language == 'es-ES') {
+      window.location='./webSpanish.html'
+    }">Detectar idioma</button>
+    <button onclick="window.history.back()">Ir atras</button>
+    <button style="position: fixed;
+     bottom: 50px; 
+     right: 50px; 
+     z-index: 100; 
+     padding: 18px; 
+     border-radius: 50px; 
+     background-color: crimson; 
+     color: white; font-weight: 
+     bold; border: none;"
+     onclick="window.scrollTo({top:0, left:0, behavior: 'smooth'})">
+      UP  
+    </button>
+    <button onclick="window.open('./webSpanish.html', '', `width=${screen.width/2}, height=${screen.availHeight / 2}`)">Open</button>
   </section>
   <main>
     <section id="products">
