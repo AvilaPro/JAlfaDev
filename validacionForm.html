@@ -14,7 +14,7 @@
     <div class="row">
       <h1>Validacion de Formulario</h1>
       <h2>Formulario de registro</h2>
-      <form class="row g-3 needs-validation border rounded p-5 border-success" novalidate method="GET" name="registerForm" action="" onsubmit="return validarForm(this)">
+      <form class="row g-3 needs-validation border rounded p-5 border-success" novalidate method="GET" name="registerForm" action="" onsubmit="return validarForm(this, event)">
         <div class="col-md-4">
           <label for="validationCustom01" class="form-label">Nombre</label>
           <input type="text" class="form-control" id="validationCustom01" value="" name="nombre" required >
@@ -70,12 +70,12 @@
           <label for="validationCustom05" class="form-label">Telefono</label>
           <input type="text" class="form-control" id="validationCustom05" name="telefono" required>
           <div class="invalid-feedback">
-            Por favor indica tu numero de telefono.
+            Por favor indica tu numero de telefono en el formato XXXX-XXXXXXX
           </div>
         </div>
         <div class="col-12">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <input class="form-check-input" type="checkbox" id="invalidCheck" required name="terminos">
             <label class="form-check-label" for="invalidCheck">
               Acepto los terminos y condiciones
             </label>
