@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start jQuery</title>
+    <script src="./js/jQueryMin.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Iniciando con jQuery</h1>
+    <div class="container">
+        <div class="row">
+            <h3 class="mt-4 text-primary border border-3">Este es un párrafo que se va a ocultar o mostrar según el botón.</h3>
+            <button id="btnOcultar" class="btn btn-danger">Ocultar elemento</button>
+            <button style="display: none;" id="btnMostrar" class="btn btn-success">Mostrar elemento</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <section class="row gap-3 justify-content-around col-8">
+                <div class="col-3 card">
+                    <img src="https://picsum.photos/id/650/100/100" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 1</h5>
+                        <p class="card-text">Dolore cillum elit in exercitation enim ipsum esse labore.</p>
+                        <button class="btn btn-info">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-3 card">
+                    <img src="https://picsum.photos/id/651/100/100" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 2</h5>
+                        <p class="card-text">Nulla voluptate ullamco dolore duis incididunt fugiat qui anim.</p>
+                        <button class="btn btn-info">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-3 card">
+                    <img src="https://picsum.photos/id/652/100/100" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 3</h5>
+                        <p class="card-text">Ullamco nulla nulla qui ea aute duis sint.</p>
+                        <button class="btn btn-info">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-3 card">
+                    <img src="https://picsum.photos/id/653/100/100" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 4</h5>
+                        <p class="card-text">Veniam cupidatat nisi aliquip sit labore esse commodo Lorem duis culpa.</p>
+                        <button class="btn btn-info">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-3 card">
+                    <img src="https://picsum.photos/id/654/100/100" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 5</h5>
+                        <p class="card-text">Laboris eiusmod proident labore ex cillum sint.</p>
+                        <button class="btn btn-info">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-3 card">
+                    <img src="https://picsum.photos/id/655/100/100" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 6</h5>
+                        <p class="card-text">Dolor dolor elit dolor est labore velit esse irure ut consequat.</p>
+                        <button class="btn btn-info">Comprar</button>
+                    </div>
+                </div>
+            </section>
+            <section class="col-4">
+                <h3>Lista de productos seleccionados</h3>
+                <ul id="comprados">
+                </ul>
+            </section>
+        </div>
+    </div>
+
+
+    <!-- Script de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Scripts que usan jQuery -->
+    <script>
+        $(document).ready(() => {
+            console.warn("pagina lista!!!");
+            $("#btnOcultar").click(() => {
+                $("#btnOcultar").hide();
+                $("#btnMostrar").show();
+                $(".container > .row > h3:first-child").hide();
+            });
+            $("#btnMostrar").click(() => {
+                $("#btnMostrar").hide();
+                $("#btnOcultar").show();
+                $(".container > .row > h3:first-child").show();
+            });
+            //Agregamos los eventos a las cards para agregarlos al carrito
+            
+            $(".card").click( (g) => {
+                console.log(g);
+                console.log(g.currentTarget.children[1].children[0].innerHTML);
+
+                //variable que almacena el nombre del producto
+                let name = g.currentTarget.children[1].children[0].innerHTML;
+
+                //metodo para cambiar la clase del background del card
+                $(g.currentTarget).attr({
+                    'style': 'background: green;'
+                })
+
+                //modo de agregar un li al ul de comprados
+                let auxLi = $("#comprados");
+                console.log(auxLi);
+                auxLi[0].innerHTML += `<li>${name}</li>`;
+            })
+            $("#comprados").on("dblclick", "li", (e) => {
+                console.log(e);
+                $(e.currentTarget).hide();
+            })
+        })
+    </script>
+</body>
+</html>
