@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Animation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="./js/jQueryMin.js"></script>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h1>Rick and Morty Characters</h1>
+        <section id="animation" class="container my-5">
+            <div class="row">
+                <div class="d-flex mb-3">
+                    <button class="btn btn-primary col-2 mx-3">Fade</button>
+                    <button class="btn btn-success col-2 mx-3">Slide</button>
+                    <button class="btn btn-info col-2 mx-3">Animate</button>
+                    <button class="btn btn-secondary col-2 mx-3">Encadenamiento</button>
+                    <button class="btn btn-danger col-2 mx-3">Detener Encadenamiento</button>
+                </div>
+                <div class="col-3 bg-primary" style="height: 200px;"></div>
+                <div class="col-3 bg-success" style="height: 200px;"></div>
+                <div class="col-3 bg-info" style="height: 200px; position: relative;"></div>
+                <div class="col-3 bg-secondary" style="height: 200px; position: relative;"></div>
+            </div>
+        </section>
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="820" height="560" id="gmap_canvas" src="https://maps.google.com/maps?q=avilapro&t=&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://alarmclock.cloud/">online alarm clock</a><br><a href="https://online.stopwatch-timer.net/"></a><br><style>.mapouter{position: relative;text-align: right;height: 560px;width: 820px;}</style><a href="https://www.embedmaps.co">google satellite maps zoom</a><style>.gmap_canvas{overflow: hidden;background: none !important;height: 560px;width: 820px;}</style></div></div>
+        <section class="container">
+            <div class="row" id="characters">
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts de la pagina -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./js/jQueryAnimationClass.js"></script>
+</body>
+</html>
