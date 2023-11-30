@@ -46,31 +46,14 @@
  * Reescribimos las funciones como clases
  */
 
-class Game {
-    constructor(name) {
-        this.levels = 3;
-        this.questions = [];
-        this.wrongAnswers = [];
-        this.rightAnswers = [];
-        this.time = 0;
-        //agregamos dentro del juego un atributo que direccione al jugador
-        this.player = new Player(name)
-    }
+/**
+ * Declaracion de variables globales
+ */
+var play;
 
-    inicializarPreguntas(button, btnStart){
-        console.log(button.parentNode.removeChild(button));
-        console.log(btnStart.style.display = "block");
-        for (let i = 1; i <= this.levels; i++) {
-            let q = prompt(`Ingresa la pregunta: ${i}: `);
-            let ra = prompt(`Ingresa la respuesta correcta: ${i}: `);
-            let wa = prompt(`Ingresa la respuesta incorrect: ${i}: `);
-        
-            this.questions.push(new Question(q));
-            this.rightAnswers.push(new AnswerR(ra));
-            this.wrongAnswers.push(new AnswerW(wa));
-        }
-    }
-}
+/**
+ * Definiciones de clases
+ */
 
 class Player {
     constructor(name) {
@@ -80,28 +63,52 @@ class Player {
     }
 }
 
-class Question {
-    constructor(quest) {
-        this.question = quest;
+class Game {
+    constructor(name) {
+        this.levels = 3;
+        this.questions = [];
+        this.time = 0;
+        //agregamos dentro del juego un atributo que direccione al jugador
+        this.player = new Player(name);
+        this.chargeQuestions();
+    }
+
+    chargeQuestions(){
+        for (let i = 0; i < this.levels; i++) {
+            let q1 = new Question(i);
+            this.questions.push(q1);
+        }
     }
 }
 
-class AnswerW {
-    constructor(ans) {
-        this.answer = ans;
+class Question {
+    constructor(index) {
+        this.question = prompt(`Ingresa la ${index+1}° pregunta : `);
+        this.answers = this.createAnswers();
+        this.rightAnswer = this.knowRightAnswer();
     }
-}
-class AnswerR {
-    constructor(ans) {
-        this.answer = ans;
+    createAnswers(){
+        let answers = [];
+        for (let i=0; i<4; i++){
+            let aux = prompt(`Ingrese la ${i+1}° respuesta: `);
+            answers.push(aux);
+        }
+        return answers;
+    }
+    knowRightAnswer(){
+        let aux = prompt("Cual es la opcion correcta?");
+        aux = parseInt(aux);
+        aux--;
+        return aux;
     }
 }
 
 /**
- * Instanciar un objeto de la clase game
+ * Instanciar un objeto de la clase Game
  */
-var play = new Game(prompt("Ingresa tu nombre: "));
-
+function startGame() {
+    play = new Game(prompt("Ingresa tu nombre: "));
+}
 
 
 
