@@ -294,5 +294,42 @@ function quitarContadorTiempo(el) {
     el.style.display = "none";
 }
 
+/**
+ * Clase 4 - Fecha Hora y Promesa
+ */
 
+function loginDate() {
+    let fecha = new Date();
 
+    let ahora = `${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()} - Hora: ${fecha.getHours()}:${fecha.getMinutes()}`;
+    
+    if (localStorage.getItem("ultimoLogin") != null) {
+        let p = document.getElementById("ultimaConexion");
+        p.innerHTML = `Ultima conexion: ${localStorage.getItem("ultimoLogin")}`;
+        localStorage.setItem("ultimoLogin", ahora);
+    }else{
+        //guardar el dato en el localstorage
+        localStorage.setItem("ultimoLogin", ahora);
+    }
+
+}
+
+// const options = {
+//     method: 'GET',
+//     headers: {
+//       accept: 'application/json',
+//       Authorization: 'Bearer '
+//     }
+//   };
+  
+//   fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1')
+//     .then(response => response.json())
+//     .then(response => console.log(response))
+//     .catch(err => console.error(err));
+
+async function peticionAsync() {
+    await fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => console.log(json));
+    console.log("ejecucion del asincrono terminado");
+}
