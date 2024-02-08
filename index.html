@@ -1,44 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <h1>Javascript 5</h1>
-    <script>
-        var pelis;
-        (function () {
-            const options = {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNWViMjNhYjAzOTcxYzUwYjZlZDE0OGU1NGIzYTcxNyIsInN1YiI6IjYyNWYyOGQ2ZDRjYzhlMDA2N2RkNGVjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XxKjUSc5jBsrPJZbgCueAeoKp6_BQt6Q1zPK2RLDz3s'
-                }
-            };
+    <h1 id="peticion">Hacer peticion</h1>
+    <div id="resultado"></div>
+    <div id="loadSite"></div>
+    <div id="person">
+        <h1 id="nombre"></h1>
+        <h1 id="apellido"></h1>
+    </div>
 
-            fetch('https://api.themoviedb.org/3/movie/top_rated?page=10', options)
-                .then(response => response.json())
-                .then(response => {
-                    console.log(response)
-                    pelis = response.results;
-                    console.log(pelis);
-                }
-                )
-                .catch(err => console.error(err));
-
-            fetch('https://api.themoviedb.org/3/movie/664767/videos', options)
-                .then(response => response.json())
-                .then(response => {
-                    console.log(response)
-                }
-                )
-                .catch(err => console.error(err));
-        })()
-    </script>
+    <script src="./js/clase2.js"></script>
 </body>
-
 </html>
