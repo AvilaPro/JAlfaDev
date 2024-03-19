@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS3 - 4758</title>
     <link rel="stylesheet" href="./css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
     <div id="container"></div>
+    <hr>
+    <h1>Lista de compras</h1>
+    <form>
+        <div class="mb-3">
+            <label for="dato" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="dato" placeholder="Nuevo elemento de la lista">
+        </div>
+        <button type="button" class="btn btn-success" id="agregar">Guardar</button>
+    </form>
+    <ul id="lista"></ul>
+    <button class="btn btn-danger" id="limpiar">Limpiar Lista</button>
+    <hr>
+    <h1>Tabla de usuarios</h1>
+    <form id="formUser">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">telefono</label>
+            <input type="text" class="form-control" id="telefono" placeholder="telefono">
+        </div>
+        <div class="mb-3">
+            <label for="correo" class="form-label">correo</label>
+            <input type="text" class="form-control" id="correo" placeholder="correo">
+        </div>
+        <button type="button" class="btn btn-success" id="addUser">Guardar</button>
+    </form>
+    <table id="tabla" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
     <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
