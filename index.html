@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/estilos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Script de Jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <!-- Modal Login-->
@@ -21,16 +23,16 @@
             <div class="modal-body">
                 <form onsubmit="return validarForm(this)" name="loginForm">
                     <div class="mb-3">
-                      <label for="email" class="form-label">Email address</label>
-                      <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password">
-                      </div>
+                    </div>
                     <button type="submit" class="btn btn-primary">Ingresar</button>
-                  </form>
+                </form>
             </div>
         </div>
     </div>
@@ -47,9 +49,9 @@
             <div class="modal-body">
                 <form method="get" name="registerForm">
                     <div class="mb-3">
-                      <label for="email" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="emailReg" aria-describedby="emailHelp" name="name">
-                      <div id="emailHelp" class="form-text">El nombre con 20 caracteres máximo</div>
+                        <label for="email" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="emailReg" aria-describedby="emailHelp" name="name">
+                        <div id="emailHelp" class="form-text">El nombre con 20 caracteres máximo</div>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
@@ -62,15 +64,17 @@
                         <option value="3">Quibor</option>
                     </select>
                     <div class="mb-3">
-                        <input class="form-check-input mt-0" id="politicas" type="checkbox" value="politicas" aria-label="Checkbox for following text input" required>
+                        <input class="form-check-input mt-0" id="politicas" type="checkbox" value="politicas"
+                            aria-label="Checkbox for following text input" required>
                         <label for="politicas">Acepto los términos y condiciones</label>
                     </div>
                     <div class="mb-3">
-                        <input class="form-check-input mt-0" id="politicas2" type="checkbox" value="politicas2" aria-label="Checkbox for following text input">
+                        <input class="form-check-input mt-0" id="politicas2" type="checkbox" value="politicas2"
+                            aria-label="Checkbox for following text input">
                         <label for="politicas2">Acepto los términos y condiciones</label>
                     </div>
                     <button type="button" onclick="validarForm(this)" class="btn btn-primary">Registrar</button>
-                  </form>
+                </form>
             </div>
         </div>
     </div>
@@ -133,10 +137,56 @@
 
         </tbody>
     </table>
+    <hr>
+    <hr>
+    <!-- agregar cards con bootstrap que simulen ser productos -->
+    <div class="container">
+        <div class="row">
+            <div class="card col-3">
+                <img src="https://img.freepik.com/vector-gratis/composicion-cyber-monday-diseno-plano_23-2147943668.jpg?t=st=1712061591~exp=1712065191~hmac=27b29a6965f02641340c284281f5b171ae7cb3a033a50251247da22b5d61c53a&w=740" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+            <div class="card col-3">
+                <img src="https://img.freepik.com/vector-gratis/composicion-moderna-cyber-monday-diseno-plano_23-2147945981.jpg?t=st=1712061608~exp=1712065208~hmac=2d55f71e026a66a649defb6c2e37fc9477d697ab70ace3b3bece4f9e7b872eeb&w=740" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+            <div class="card col-3">
+                <img src="https://img.freepik.com/vector-gratis/fondo-rebajas-tecnologicas_23-2147599276.jpg?t=st=1712061625~exp=1712065225~hmac=bcd08e19407c16960f3502461bcfc92d49ead337ba1e4fb6d11c88abf6a07b68&w=740" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+            <div class="card col-3">
+                <img src="https://img.freepik.com/vector-gratis/banners-lunes-cibernetico-diseno-plano_23-2148306146.jpg?t=st=1712061635~exp=1712065235~hmac=24a116eb57b44d68f095ddc00f3b333679041b9f171115881084f76e5faf60b3&w=740" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <!-- Script que usa jQuery -->
+    <script src="./js/jqueryScript.js"></script>
 </body>
 
 </html>

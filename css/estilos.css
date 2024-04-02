@@ -11,6 +11,9 @@
 #lista > li{
     margin: 8px 0;
 }
-#tabla{
+/* #tabla{
     margin-bottom: 1000px;
+} */
+.cardComprada{
+    background: lightgreen !important;
 }
