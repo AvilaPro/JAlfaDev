@@ -142,7 +142,13 @@
     <!-- agregar cards con bootstrap que simulen ser productos -->
     <div class="container">
         <div class="row">
-            <div class="card col-3">
+            <div class="col-12">
+                <button id="btnFade" class="btn btn-warning">Fade</button>
+                <button id="btnSlide" class="btn btn-warning">Slide</button>
+                <button id="btnAnimate" class="btn btn-warning">Animate</button>
+                <button id="btnStop" class="btn btn-danger">Detener animacion</button>
+            </div>
+            <div class="card col-3" id="cardFade">
                 <img src="https://img.freepik.com/vector-gratis/composicion-cyber-monday-diseno-plano_23-2147943668.jpg?t=st=1712061591~exp=1712065191~hmac=27b29a6965f02641340c284281f5b171ae7cb3a033a50251247da22b5d61c53a&w=740" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -151,7 +157,7 @@
                     <a href="#" class="btn btn-primary">Comprar</a>
                 </div>
             </div>
-            <div class="card col-3">
+            <div class="card col-3" id="cardSlide">
                 <img src="https://img.freepik.com/vector-gratis/composicion-moderna-cyber-monday-diseno-plano_23-2147945981.jpg?t=st=1712061608~exp=1712065208~hmac=2d55f71e026a66a649defb6c2e37fc9477d697ab70ace3b3bece4f9e7b872eeb&w=740" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -160,7 +166,7 @@
                     <a href="#" class="btn btn-primary">Comprar</a>
                 </div>
             </div>
-            <div class="card col-3">
+            <div class="card col-3" id="cardAnimate" style="z-index: 1000; overflow: hidden;">
                 <img src="https://img.freepik.com/vector-gratis/fondo-rebajas-tecnologicas_23-2147599276.jpg?t=st=1712061625~exp=1712065225~hmac=bcd08e19407c16960f3502461bcfc92d49ead337ba1e4fb6d11c88abf6a07b68&w=740" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -178,6 +184,19 @@
                     <a href="#" class="btn btn-primary">Comprar</a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container" >
+        <div class="row flex-column justify-content-center align-items-center">
+            <ul id="list-group" class="col-6">
+                <li class="list-group-item border p-3 rounded">Elemento 1</li>
+                <li class="list-group-item border p-3 rounded">Elemento 2</li>
+                <li class="list-group-item border p-3 rounded">Elemento 3</li>
+                <li class="list-group-item border p-3 rounded">Elemento 4</li>
+                <li class="list-group-item border p-3 rounded">Elemento 5</li>
+            </ul>
+            <button class="btn btn-success col-6" id="btnAdd">Agregar</button>
         </div>
     </div>
 
