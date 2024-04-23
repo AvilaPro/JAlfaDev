@@ -55,17 +55,52 @@ pedido.fecha = "";
 pedido.monto = 0;
 
 /**Cap 2 */
-function Cliente(ci, name, last, phone, addr) {
-  this.cedula = ci,
-  this.nombre = name,
-  this.apellido = last,
-  this.telefono = phone,
-  this.direccion = addr
+// function Cliente(ci, name, last, phone, addr) {
+//   this.cedula = ci,
+//   this.nombre = name,
+//   this.apellido = last,
+//   this.telefono = phone,
+//   this.direccion = addr
+// }
+
+// function agregarCliente() {
+//   cliente = new Cliente(document.datosCliente.cedulaCliente.value, document.datosCliente.nombreCliente.value, document.datosCliente.apellidoCliente.value, document.datosCliente.telefonoCliente.value, document.datosCliente.direccionCliente.value);
+//   console.log(cliente);
+//   console.log(document.datosCliente);
+// }
+
+/**Cap 3 Clases */
+class Articulos{
+  nombre = "";
+  precio = 0;
+  descripcion = "";
+  imagen = "";
+
+  constructor(name, price, desc, img){
+    this.nombre = name;
+    this.precio = price;
+    this.descripcion = desc;
+    this.imagen = img;
+  }
 }
 
-function agregarCliente() {
-  cliente = new Cliente(document.datosCliente.cedulaCliente.value, document.datosCliente.nombreCliente.value, document.datosCliente.apellidoCliente.value, document.datosCliente.telefonoCliente.value, document.datosCliente.direccionCliente.value);
-  console.log(cliente);
-  console.log(document.datosCliente);
+class Cliente{
+  constructor(ci, name, last, phone, addr){
+    this.cedula = ci;
+    this.nombre = name;
+    this.apellido = last;
+    this.telefono = phone;
+    this.direccion = addr;
+  }
 }
+
+class Pedido{
+  constructor(client, articles, price){
+    this.pedido = client,
+    this.articulos = articles,
+    this.fecha = new Date();
+    this.precio = price;
+  }
+}
+
 
