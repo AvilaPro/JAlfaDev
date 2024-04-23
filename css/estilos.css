@@ -1,0 +1,131 @@
+.imgfondo{
+  /* The image used */
+  background-image: url("../img/pizza.jpg");
+
+  /* Set a specific height */
+  height: 1100px; 
+
+  /* Create the parallax scrolling effect */
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.navbar{
+  height: 100px;
+}
+#cabecera{
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+#logo{
+  height: 95px;
+}
+#myNavbar{
+  padding-top: 20px;
+}
+#menu{
+  color: white;
+  font-size: 20px;
+}
+#boton-ubicacion{
+}
+.btn-warning{
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+#centro{
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#centro-nombre{
+  text-align: center;
+  color: white;
+  font-family: 'Merienda', cursive;
+  font-size: 100px;
+}
+#centro-boton{
+  padding: 10px 45px 10px 45px;
+  font-size: 20px;
+}
+#infos{
+  height: 1000px;
+}
+#infos-container{
+  background: white;
+  width: 80%;
+}
+#infos-titulo-fila{
+  padding-top: 50px;
+}
+#infos-titulo{
+  text-align: center;  
+}
+#infos-titulo-p{
+  font-family: 'Merienda', cursive;
+  color: black;
+  font-size: 35px;
+}
+#cap1{
+  text-align: center;
+}
+h3{
+  font-weight: bold;
+}
+#ingredientes{
+  font-style: italic;
+}
+#boton-agregar{
+  padding-left: 65px;
+  padding-right: 65px;
+}
+footer{
+  height: 400px;
+}
+#contacto{
+  height: 300px;
+  background: #E64A19;
+}
+#cap2{
+  padding-top: 30px;
+  color: white;
+}
+#cap3{
+  padding-top: 65px;
+  color: white;
+}
+#pad{
+  padding-left: 10px;
+}
+#mapa{
+  width: 100%;
+  height: 80%;;
+  padding-top: 30px;
+}
+#autoria{
+  height: 50px;
+  background: black;
+}
+#autor{
+  text-align: center;
+  color: white;
+}
+#aut{
+  padding-top: 10px;
+}
+@media(min-width:1441px){
+  #infos{
+      height: 1400px;
+  }
+  #mapa{
+      height: 260px;;
+  }
+}
+@media(max-width:768px){
+  #infos{
+      height: 3693px;
+  }
+}
