@@ -123,6 +123,9 @@
         <button type="button" class="btn btn-primary" onclick="agregarCliente()">Agregar cliente</button>
       </form>
       <button class="btn btn-success px-5 py-3" onclick="facturarCompra()">Facturar compra</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearArticulo">
+        Crear Articulo
+      </button>
     </section>
     <footer>
       <div class="row" id="contacto">
@@ -159,6 +162,42 @@
     </footer>
   </div>
 
+  <!-- Modal para cargar un nuevo articulo -->
+  <div class="modal fade" id="crearArticulo" tabindex="-1" aria-labelledby="crearArticuloLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="crearArticuloLabel">Crear Articulo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form name="datosArticulo">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" name="nombre" id="nombre" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="precio" class="form-label">Precio</label>
+              <input type="text" name="precio" id="precio" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripcion</label>
+              <input type="text" name="descripcion" id="descripcion" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="imagen" class="form-label">Imagen</label>
+              <input type="file" name="imagen" id="imagen" class="form-control">
+            </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="crearArticulo()" data-bs-dismiss="modal">Agregar articulo</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Script de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

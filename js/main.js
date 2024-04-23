@@ -25,12 +25,26 @@
 /**
  * Declaraciones de variables globales
  */
+var articulos = [];
 var articulosSeleccionados = [];
 var cliente;
 
 /**
  * Metodos globales
  */
+function crearArticulo() {
+  let auxArticulo = new Articulo(document.datosArticulo.nombre.value, document.datosArticulo.precio.value, document.datosArticulo.descripcion.value, document.datosArticulo.imagen.value);
+  articulos.push(auxArticulo);
+
+  console.log(articulos);
+}
+
+function agregarCliente() {
+  cliente = new Cliente(document.datosCliente.cedulaCliente.value, document.datosCliente.nombreCliente.value, document.datosCliente.apellidoCliente.value, document.datosCliente.telefonoCliente.value, document.datosCliente.direccionCliente.value);
+  console.log(cliente);
+  console.log(document.datosCliente);
+}
+
 function addArticle(e, id) {
   e.preventDefault();
   
@@ -46,13 +60,13 @@ function facturarCompra() {
 
 /**Cap 1 */
 //Creamos un objeto de ejemplo llamado pedido.
-let pedido = new Object();
+// let pedido = new Object();
 
 //Agregamos los atributos del objeto segun nuestro modelo de datos
-pedido.cliente = "";
-pedido.articulos = "";
-pedido.fecha = "";
-pedido.monto = 0;
+// pedido.cliente = "";
+// pedido.articulos = "";
+// pedido.fecha = "";
+// pedido.monto = 0;
 
 /**Cap 2 */
 // function Cliente(ci, name, last, phone, addr) {
@@ -63,14 +77,10 @@ pedido.monto = 0;
 //   this.direccion = addr
 // }
 
-// function agregarCliente() {
-//   cliente = new Cliente(document.datosCliente.cedulaCliente.value, document.datosCliente.nombreCliente.value, document.datosCliente.apellidoCliente.value, document.datosCliente.telefonoCliente.value, document.datosCliente.direccionCliente.value);
-//   console.log(cliente);
-//   console.log(document.datosCliente);
-// }
+
 
 /**Cap 3 Clases */
-class Articulos{
+class Articulo{
   nombre = "";
   precio = 0;
   descripcion = "";
@@ -96,11 +106,18 @@ class Cliente{
 
 class Pedido{
   constructor(client, articles, price){
-    this.pedido = client,
+    this.cliente = client,
     this.articulos = articles,
     this.fecha = new Date();
     this.precio = price;
   }
+
+  getArticles(){
+    for (const article of this.articulos) {
+      console.log(`articulo: ${article}`);
+    }
+  }
+  
 }
 
 
