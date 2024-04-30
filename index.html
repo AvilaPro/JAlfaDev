@@ -12,19 +12,20 @@
   <title>Desafio 2 Bootstrap</title>
 </head>
 
-<body>
+<body onload="verificarLoginUser()">
   <div class="imgfondo">
     <header>
-      <nav class="navbar">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid" id="cabecera">
           <div class="nav navbar-nav navbar-left">
             <img src="img/logo-pizzeria.png" class="img-responsive" id="logo">
           </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
+          <div class="px-5 collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li><a href="#" id="menu"><label class="glyphicon glyphicon-home"></label>Inicio</a></li>
-              <li><a href="#" id="menu"><label class="glyphicon glyphicon-list"></label>Menu</a></li>
-              <li><a href="#" id="menu"><label class="glyphicon glyphicon-picture"></label>Galeria</a></li>
+              <li class="nav-item mx-3 "><a href="#" id="lihome" class="liNav"><label class="glyphicon glyphicon-home"></label>Inicio</a></li>
+              <li class="nav-item mx-3 "><a href="#" id="liMenu" class="liNav"><label class="glyphicon glyphicon-list"></label>Menu</a></li>
+              <li class="nav-item mx-3 " data-bs-toggle="modal" data-bs-target="#loginModal"><a href="#" id="liLogin" class="liNav"><label class="glyphicon glyphicon-picture"></label>Iniciar Sesion</a></li>
+              <li class="nav-item mx-3 "><a href="#" id="liCloseLogin" class="liNav" style="display: none;" onclick="localStorage.clear(); document.getElementById('liCloseLogin').style.display='none'; document.getElementById('liLogin').style.display='block'; "><label class="glyphicon glyphicon-picture"></label>Cerrar Sesion</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li id="boton-ubicacion"><button type="button" class="btn btn-warning " name="" id="menu"><label
@@ -120,7 +121,11 @@
           <label for="direccionCliente" class="form-label">Direccion</label>
           <input type="text" name="direccionCliente" id="direccionCliente" class="form-control">
         </div>
-        <button type="button" class="btn btn-primary" onclick="agregarCliente()">Agregar cliente</button>
+        <div class="mb-3">
+          <label for="claveCliente" class="form-label">clave</label>
+          <input type="text" name="claveCliente" id="claveCliente" class="form-control">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="Cliente.agregarCliente()">Agregar cliente</button>
       </form>
       <button class="btn btn-success px-5 py-3" onclick="facturarCompra()">Facturar compra</button>
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearArticulo">
@@ -198,6 +203,36 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal de Inicio de sesion -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar Sesion</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form name="loginForm">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Cedula de Identidad</label>
+              <input type="email" class="form-control" id="ciLogin" name="ciLogin" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="passLogin" name="passLogin">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" onclick="validateClient(document.loginForm.ciLogin.value, document.loginForm.passLogin.value)">Iniciar Sesion</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Script de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
