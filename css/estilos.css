@@ -1,6 +1,6 @@
 .imgfondo{
   /* The image used */
-  background-image: url("../img/pizza.jpg");
+  background-image: url("../img/pizzaBanner.jpg");
 
   /* Set a specific height */
   height: 1100px; 
@@ -10,6 +10,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  width: 100vw;
 }
 .navbar{
   height: 100px;

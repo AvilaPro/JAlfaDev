@@ -216,6 +216,82 @@ class Pedido {
 }
 
 /**
+ * clase 3 - Codigo Asincrono
+ */
+let btnSwal = document.getElementById('centro-boton');
+btnSwal.addEventListener('click', () => {
+  console.log("click en el btnSwal");
+  Swal.fire("SweetAlert2 is working!");
+})
+
+/**
+ * Practica cap 9
+ * Programar en el body en evento load (onload, addEventListener('load')) que se muestre un alert "clasico" de js. Y luego sustituir por un sweetAlert y compare los comportamientos.
+ */
+
+/**
+ * Practica cap 10 - setTimeout
+ * Programar que al cargar la pagina (body), se inicie un contador de tiempo o "contador de sesion", en donde se le indique al usuario que en 10 segundos se le cerrará la sesión.
+ * Al cabo de 5 segundos debe ejecutar un sweetAlert que indique que quedan 5 segundos y que si desea mantener la sesion abierta debe indicarlo al presionar un boton en el sweetAlert.
+ * Sino desea continuar se debe cerrar el sweetAlert y se debe mostrar en la pagina que se cerro la sesion (alert, innerHTML, jQuery, SweetAlert).
+ */
+
+class AlertaSuave{
+  constructor(){}
+  //metodos estaticos no pueden ser usados por las instancias
+  static mostrarSuave(){
+    alert("muestro suave");
+  }
+}
+
+let sessionTimer
+function enderSession() {
+  // limpiarIntervalo();
+  sessionTimer = setInterval(() => {
+    alert('se ha cerrado la sesion')
+  }, 10000);
+}
+
+function limpiarIntervalo() {
+  setTimeout(() => {
+    Swal.fire({
+      title: "Deseas continuar con la sesion?",
+      text: "En caso contrario se cerrará!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "mantenerla!",
+      timer: 4900,
+      timerProgressBar: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        clearInterval(sessionTimer);
+        enderSession();
+        Swal.fire({
+          title: "Se mantiene!",
+          text: "Tu sesion se mantiene abierta.",
+          icon: "success"
+        });
+      }else{
+        limpiarIntervalo()
+      }
+    });
+  }, 5000)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**
  * Clase 4 - Fecha y hora
 */
 let pFecha = document.getElementById("fecha");

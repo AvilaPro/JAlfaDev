@@ -10,9 +10,15 @@
   <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/estilos.css">
   <title>Desafio 2 Bootstrap</title>
+  <!-- Script sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body onload="verificarLoginUser()">
+<body onload="verificarLoginUser(); enderSession()">
+  <script>
+    // alert('alerta antes de todo');
+    Swal.fire('SweetAlert Asincrono');
+  </script>
   <div class="imgfondo">
     <header>
       <nav class="navbar navbar-expand-lg">
@@ -43,10 +49,12 @@
         </div>
       </nav>
     </header>
+
     <section id="centro">
       <label id="centro-nombre">-Pizzeria-</label>
       <button class="btn btn-success btn-lg" id="centro-boton">Ver menú</button>
     </section>
+
     <section id="infos">
       <div class="container" id="infos-container">
         <div class="row" id="infos-titulo-fila">
@@ -57,7 +65,7 @@
         </div>
         <div class="row">
           <div class="card col-md-4 col-6">
-            <img src="./img/tipo-pizza.jpg" class="card-img-top" alt="...">
+            <img src="./img/pizza.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -66,7 +74,7 @@
             </div>
           </div>
           <div class="card col-md-4 col-6">
-            <img src="./img/tipo-pizza.jpg" class="card-img-top" alt="...">
+            <img src="./img/pizza.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -75,7 +83,7 @@
             </div>
           </div>
           <div class="card col-md-4 col-6">
-            <img src="./img/tipo-pizza.jpg" class="card-img-top" alt="...">
+            <img src="./img/pizza.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -84,7 +92,7 @@
             </div>
           </div>
           <div class="card col-md-4 col-6">
-            <img src="./img/tipo-pizza.jpg" class="card-img-top" alt="...">
+            <img src="./img/pizza.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -93,7 +101,7 @@
             </div>
           </div>
           <div class="card col-md-4 col-6">
-            <img src="./img/tipo-pizza.jpg" class="card-img-top" alt="...">
+            <img src="./img/pizza.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -102,7 +110,7 @@
             </div>
           </div>
           <div class="card col-md-4 col-6">
-            <img src="./img/tipo-pizza.jpg" class="card-img-top" alt="...">
+            <img src="./img/pizza.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -249,7 +257,7 @@
     </div>
   </div>
 
-
+  
   <!-- Script de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
