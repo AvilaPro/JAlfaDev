@@ -215,4 +215,33 @@ class Pedido {
 
 }
 
+/**
+ * Clase 4 - Fecha y hora
+*/
+let pFecha = document.getElementById("fecha");
+let dias = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+let meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+var fecha = new Date();
 
+var textoFecha = `Hoy es ${dias[fecha.getDay()]} ${fecha.getDate()} de ${meses[fecha.getMonth()]} del ${fecha.getFullYear()}`;
+
+pFecha.innerHTML = textoFecha;
+
+setInterval(() => {
+  let hora = new Date();
+  let textoHora = `, la hora actual es ${hora.getHours().toString().padStart(2, '0')}:${hora.getMinutes().toString().padStart(2, '0')}:${hora.getSeconds().toString().padStart(2, '0')}`
+  pFecha.innerHTML = textoFecha + textoHora;
+}, 1000)
+
+/**
+ * Trabajando con promesas
+ */
+let usuarios;
+console.log(usuarios);
+
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(re => re.json())
+.then(datos => {
+  usuarios = datos;
+  console.log(usuarios)
+});
