@@ -1,0 +1,23 @@
+*{
+    font-family: 'Segoe UI';
+}
+
+#game{
+    display: flex;
+    justify-content: space-around;
+    border: lightseagreen solid 3px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+#game > div{
+    max-width: 40%;
+    text-align: center;
+}
+#game > div > img{
+    width: 60%;
+    aspect-ratio: 1/1;
+}
+#game > div > div:last-child{
+    display: flex;
+    justify-content: space-around;
+}
