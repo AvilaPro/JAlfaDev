@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper Stone Scissors</title>
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
-<body>
+<body onload="darBienvenida()" onclick="darBienvenida()" style="height: 100vh;">
     <header></header>
     <main>
-        <div id="game">
+        <div id="game" onclick="cambiarColorFondo(this, event)">
             <div>
                 <p>Tú</p>
                 <img src="https://hips.hearstapps.com/hmg-prod/images/people-playing-paper-rock-scissors-royalty-free-illustration-1583269312.jpg?crop=0.93336xw:1xh;center,top&resize=1200:*" alt="">
                 <p>Opcion:</p>
                 <div>
-                    <button>Piedra</button>
-                    <button>Papel</button>
-                    <button>Tijeras</button>
+                    <button onclick="seleccionarJuego(0)">Piedra</button>
+                    <button onclick="seleccionarJuego(1)">Papel</button>
+                    <button onclick="seleccionarJuego(2)">Tijeras</button>
                 </div>
             </div>
             <div>
