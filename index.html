@@ -6,26 +6,42 @@
     <title>Paper Stone Scissors</title>
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
-<body onload="darBienvenida()" onclick="darBienvenida()" style="height: 100vh;">
-    <header></header>
+<body onclick="darBienvenida()" style="height: 100vh;" onscroll="console.log(`width: ${window.screen.width}, height: ${window.screen.height}, availWidth: ${window.screen.availWidth}, availHeight: ${window.screen.availHeight}`)">
+    <button id="btnUp" onclick="window.scrollTo({top:0, left:0, behavior: 'smooth'}); stopPropagation(event)">Up</button>
+    <header style="display: flex; justify-content: space-around; max-height: 15vh;" >
+        <img style="max-width: 10%;" src="https://i.ibb.co/n8hzwsQ/logo-Avilapro-Azul-Con-Nombre-Letras-Oscuras-Sin-Fondo.png" alt="logo">
+        <nav style="width: 60%;">
+            <ul style="display: flex; justify-content: space-around;">
+                <li class="btnsGame" onclick="window.location='https://avilapro.github.io'; stopPropagation(event)">Avilapro Dev</li>
+                <li class="btnsGame" onclick="window.print(); stopPropagation(event);">Imprimir</li>
+                <li class="btnsGame" onclick="if(window.navigator.language == 'es-ES'){window.location='./webES.html'}; stopPropagation(event);">Español</li>
+                <li class="btnsGame" onclick="window.history.back(); stopPropagation(event);">atras</li>
+            </ul>
+        </nav>
+    </header>
     <main>
+        <h1 style="text-align: center;">Piedra, Papel o Tijeras</h1>
         <div id="game" onclick="cambiarColorFondo(this, event)">
             <div>
                 <p>Tú</p>
-                <img src="https://hips.hearstapps.com/hmg-prod/images/people-playing-paper-rock-scissors-royalty-free-illustration-1583269312.jpg?crop=0.93336xw:1xh;center,top&resize=1200:*" alt="">
-                <p>Opcion:</p>
-                <div>
-                    <button onclick="seleccionarJuego(0)">Piedra</button>
-                    <button onclick="seleccionarJuego(1)">Papel</button>
-                    <button onclick="seleccionarJuego(2)">Tijeras</button>
+                <img id="imgOpcPlayer" src="https://i.ibb.co/j3NmHbs/ppt-removebg-preview.png" alt="">
+                <p id="opcPlayer">Opcion:</p>
+                <div id="btnsOpcs">
+                    <button class="btnsGame" onclick="seleccionarJuego(0)">Piedra</button>
+                    <button class="btnsGame" onclick="seleccionarJuego(1)">Papel</button>
+                    <button class="btnsGame" onclick="seleccionarJuego(2)">Tijeras</button>
                 </div>
             </div>
             <div>
                 <p>La máquina</p>
-                <img src="https://hips.hearstapps.com/hmg-prod/images/people-playing-paper-rock-scissors-royalty-free-illustration-1583269312.jpg?crop=0.93336xw:1xh;center,top&resize=1200:*" alt="">
-                <p>Opcion:</p>
+                <img id="imgOpcMachine" src="https://i.ibb.co/j3NmHbs/ppt-removebg-preview.png" alt="">
+                <p id="opcMachine">Opcion:</p>
+            </div>
+            <div style="align-items: center;" id="btnReset">
+                <button class="btnsGame" onclick="window.location.reload()">Reiniciar</button>
             </div>
         </div>
+        <button class="btnsGame" onclick="window.open('./webES.html', '', `width=${screen.width/2}, height=${screen.availHeight / 2}`)">Open</button>
     </main>
     <footer></footer>
 

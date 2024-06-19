@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web para español</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body onload="window.moveTo(`${screen.availWidth/2}`, 0); manejarApertura()">
+    <header style="display: flex; justify-content: space-around; max-height: 15vh;">
+        <img style="max-width: 10%;"
+            src="https://i.ibb.co/n8hzwsQ/logo-Avilapro-Azul-Con-Nombre-Letras-Oscuras-Sin-Fondo.png" alt="logo">
+        <nav style="width: 60%;">
+            <ul style="display: flex;">
+                <li onclick="window.history.back()">Ir al Home</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>La pagina para idioma en español</h1>
+    </main>
+    <script>
+        function manejarApertura() {
+            if (window.opener != null) {
+                document.body.innerHTML += '\n <button onclick="window.close()" style="background: red; color: white; border: none; padding: 10px; border-radius: 10px;">Cerrar</button><br><button onclick="window.opener.location=`https://avilapro.github.io`" style="background: green; color: white; border: none; padding: 10px; border-radius: 10px;">Cambiar index</button>'
+            }
+        }
+    </script>
+</body>
+
+</html>
