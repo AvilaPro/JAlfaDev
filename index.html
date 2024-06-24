@@ -6,7 +6,10 @@
     <title>Paper Stone Scissors</title>
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
-<body onclick="darBienvenida()" style="height: 100vh;" onscroll="console.log(`width: ${window.screen.width}, height: ${window.screen.height}, availWidth: ${window.screen.availWidth}, availHeight: ${window.screen.availHeight}`)">
+<div id="spinner">
+    <span class="loader"></span>
+</div>
+<body style="height: 100vh;" onscroll="console.log(`width: ${window.screen.width}, height: ${window.screen.height}, availWidth: ${window.screen.availWidth}, availHeight: ${window.screen.availHeight}`)">
     <button id="btnUp" onclick="window.scrollTo({top:0, left:0, behavior: 'smooth'}); stopPropagation(event)">Up</button>
     <header style="display: flex; justify-content: space-around; max-height: 15vh;" >
         <img style="max-width: 10%;" src="https://i.ibb.co/n8hzwsQ/logo-Avilapro-Azul-Con-Nombre-Letras-Oscuras-Sin-Fondo.png" alt="logo">
@@ -19,7 +22,24 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="main" style="display: none;">
+        <div>
+            <form action="" name="fReg" id="fReg">
+                <div>
+                    <label for="">Nombre</label>
+                    <input onblur="validarInputsFomulario('fReg')" type="text" name="name" id="inputName">
+                </div>
+                <div>
+                    <label for="">Correo</label>
+                    <input onblur="validarInputsFomulario('fReg')" type="text" name="email" id="inputEmail">
+                </div>
+                <div>
+                    <label for="">Telefono</label>
+                    <input onblur="validarInputsFomulario('fReg')" type="text" name="phone" id="inputPhone">
+                </div>
+                <input disabled type="button" value="Registrarse">
+            </form>
+        </div>
         <h1 style="text-align: center;">Piedra, Papel o Tijeras</h1>
         <div id="game" onclick="cambiarColorFondo(this, event)">
             <div>
@@ -42,6 +62,7 @@
             </div>
         </div>
         <button class="btnsGame" onclick="window.open('./webES.html', '', `width=${screen.width/2}, height=${screen.availHeight / 2}`)">Open</button>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8dOIeDRewgU?si=2PINQihzyKsdqyA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </main>
     <footer></footer>
 

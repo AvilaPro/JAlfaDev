@@ -79,3 +79,54 @@ function cambiarColorFondo(e, ev){
 function stopPropagation(ev) {
     ev.stopPropagation();
 }
+
+/**
+ * Método para el registro
+ */
+function registerUser() {
+    let userName = document.fReg.name.value;
+    //De forma analoga la manipulacion de los datos de correo y telefono.
+    document.getElementById("game").children[0].children[0].innerHTML = userName;
+    //ocultar el formulario una vez registrado el usuario.
+    document.fReg.style.display = "none";
+}
+/**
+ * Método para validar que los inputs han sido rellenados.
+ */
+function validarInputsFomulario(nameForm) {
+    console.log(nameForm);
+    console.log(document.forms[`${nameForm}`]);
+    let hayInputVacio = true;
+    for (let i = 0; i < document.forms[`${nameForm}`].length - 1; i++) {
+        if (document.forms[`${nameForm}`][i].value != "") {
+            hayInputVacio = false;
+            console.log(hayInputVacio + "este input esta lleno" );
+        }else{
+            hayInputVacio = true;
+        }
+    }
+    if (!hayInputVacio) {
+        document.forms[`${nameForm}`][document.forms[`${nameForm}`].length - 1].disabled = false;
+    }
+}
+
+/**
+ * Agregando manejador de eventos desde javascript
+ */
+document.forms["fReg"][3].onclick = registerUser;
+document.forms["fReg"][3].ondblclick = alertar;
+// document.forms["fReg"][2].onblur = alertar;
+document.forms["fReg"][1].addEventListener("blur", alertar);
+function alertar() {
+    alert("doble click en el btn registro");
+}
+
+/**
+ * Spinner para el load de la pagina
+ */
+window.addEventListener("load", quitarSpinner);
+function quitarSpinner() {
+    console.log("quitar spinner");
+    document.getElementById("spinner").style.display = "none";
+    document.getElementById("main").style.display = "block";
+}
