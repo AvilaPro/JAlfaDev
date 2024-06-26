@@ -46,10 +46,10 @@
                 <p>Tú</p>
                 <img id="imgOpcPlayer" src="https://i.ibb.co/j3NmHbs/ppt-removebg-preview.png" alt="">
                 <p id="opcPlayer">Opcion:</p>
-                <div id="btnsOpcs">
-                    <button class="btnsGame" onclick="seleccionarJuego(0)">Piedra</button>
-                    <button class="btnsGame" onclick="seleccionarJuego(1)">Papel</button>
-                    <button class="btnsGame" onclick="seleccionarJuego(2)">Tijeras</button>
+                <div id="btnsOpcs" style="display: none;">
+                    <button class="btnsGame" onclick="seleccionarJuego(0, event)">Piedra</button>
+                    <button class="btnsGame" onclick="seleccionarJuego(1, event)">Papel</button>
+                    <button class="btnsGame" onclick="seleccionarJuego(2, event)">Tijeras</button>
                 </div>
             </div>
             <div>
@@ -58,12 +58,21 @@
                 <p id="opcMachine">Opcion:</p>
             </div>
             <div style="align-items: center;" id="btnReset">
-                <button class="btnsGame" onclick="window.location.reload()">Reiniciar</button>
+                <button class="btnsGame" id="btnRestart">Reiniciar</button>
             </div>
         </div>
         <button class="btnsGame" onclick="window.open('./webES.html', '', `width=${screen.width/2}, height=${screen.availHeight / 2}`)">Open</button>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/8dOIeDRewgU?si=2PINQihzyKsdqyA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </main>
+    <div>
+        <span>Intentos: </span><span id="intentos"></span>
+    </div>
+    <div>
+        <button id="some">Saber si al menos uno (some)</button>
+        <button id="every">Saber si todos son mayores a (every)</button>
+        <button id="filter">Obtener todos los intentos mayores a (filter)</button>
+        <p id="pFilter"></p>
+    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/8dOIeDRewgU?si=2PINQihzyKsdqyA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <footer></footer>
 
     <!-- Scripts del juego -->

@@ -5,6 +5,9 @@ let jugadorGanador = false;
 let opciones = ["piedra", "papel", "tijeras"];
 let colorsGame = ["#00B613", "#A3B600", "#AD1403"];
 let imgsOptions = ["https://i.ibb.co/Jxn31jS/piedra-removebg-preview.png", "https://i.ibb.co/L8Z8H9M/papel-removebg-preview.png", "https://i.ibb.co/rxkdyq6/tijeras-removebg-preview.png"];
+let intentos = [];
+//variable para contar el numero de intentos antes de ganar
+let nroIntentos = 0;
 /**
  * Logica del juego
  * 0: Piedra
@@ -18,7 +21,10 @@ let imgsOptions = ["https://i.ibb.co/Jxn31jS/piedra-removebg-preview.png", "http
  * Si son iguales hay empate
  */
 
-function seleccionarJuego(playerSelection) {
+function seleccionarJuego(playerSelection, ev) {
+    nroIntentos++;
+    console.log(nroIntentos);
+    ev.stopPropagation();
     seleccionMaquina = Math.floor(Math.random()*3);   
     console.log(`La seleccion de la maquina es: ${seleccionMaquina}`);
 
@@ -37,11 +43,16 @@ function seleccionarJuego(playerSelection) {
          */
         jugadorGanador = true;
         let msgVictory = `Has ganado!!!. Tú = ${opciones[miSeleccion]}; Máquina = ${opciones[seleccionMaquina]}`;
-        document.body.innerHTML += '<h3>' + msgVictory + '</h3>';
+        // document.body.innerHTML += '<h3>' + msgVictory + '</h3>';
         document.getElementById('game').style.background = colorsGame[0];
         document.getElementById('btnReset').style.display = "flex";
         document.getElementById("btnsOpcs").style.display = "none";
         // alert(msgVictory);
+        //almaceno el numero de intentos que uso el jugador para ganar
+        intentos.push(nroIntentos);
+        nroIntentos = 0;
+        //mostrar los intentos en #intentos dentro de la pagina
+        document.getElementById("intentos").innerHTML = intentos;
     }else{
         if (miSeleccion == seleccionMaquina) {
             /**
@@ -49,7 +60,7 @@ function seleccionarJuego(playerSelection) {
              */
             jugadorGanador = false;
             let msgDraw = `Empate. Tú = ${opciones[miSeleccion]}; Máquina = ${opciones[seleccionMaquina]}`;
-            document.body.innerHTML += '<h3>' + msgDraw + '</h3>';
+            // document.body.innerHTML += '<h3>' + msgDraw + '</h3>';
             document.getElementById('game').style.background = colorsGame[1];
             // alert(msgDraw);
         }else{
@@ -57,7 +68,7 @@ function seleccionarJuego(playerSelection) {
              * Este codigo se ejecuta al perder
              */
             let msgDefeat = `Has perdido!!!. Tu = ${opciones[miSeleccion]}; Máquina = ${opciones[seleccionMaquina]}`;
-            document.body.innerHTML += '<h3>' + msgDefeat + '</h3>';
+            // document.body.innerHTML += '<h3>' + msgDefeat + '</h3>';
             document.getElementById('game').style.background = colorsGame[2];
             // alert(msgDefeat);
         }
@@ -90,6 +101,7 @@ function registerUser() {
     //ocultar el formulario una vez registrado el usuario.
     document.fReg.style.display = "none";
 }
+
 /**
  * Método para validar que los inputs han sido rellenados.
  */
@@ -114,12 +126,30 @@ function validarInputsFomulario(nameForm) {
  * Agregando manejador de eventos desde javascript
  */
 document.forms["fReg"][3].onclick = registerUser;
+/**
+ * Manejador de evento con funcion anonima
+ */
+document.forms["fReg"][3].addEventListener("click", function(){
+    document.getElementById("btnsOpcs").style.display = "block";
+})
 document.forms["fReg"][3].ondblclick = alertar;
 // document.forms["fReg"][2].onblur = alertar;
 document.forms["fReg"][1].addEventListener("blur", alertar);
 function alertar() {
     alert("doble click en el btn registro");
 }
+
+document.getElementById("btnRestart").addEventListener("click", (event) => {
+    event.stopPropagation();
+    console.log("click en el btnRestart");
+    //ocultar el #btnReset
+    document.getElementById("btnReset").style.display = "none";
+    //volver a mostrar #btnsOpcs
+    document.getElementById("btnsOpcs").style.display = "block";
+    //volver a colocar el fondo linear-gradient a #game
+    document.getElementById("game").style.background = "none";
+    document.getElementById("game").style.backgroundImage = "linear-gradient(to right top, #bf6bd1, #788cf1, #00a3f3, #00b2dd, #00bbbd, #00c1a5, #34c482, #69c457, #8fc640, #b4c628, #d9c410, #ffbf0d)";
+})
 
 /**
  * Spinner para el load de la pagina
@@ -130,3 +160,20 @@ function quitarSpinner() {
     document.getElementById("spinner").style.display = "none";
     document.getElementById("main").style.display = "block";
 }
+
+document.getElementById("some").addEventListener("click", () => {
+    let query = parseInt(prompt("Indique el numero de intentos que desea averiguar: "));
+    console.log(`existe un numero de intentos ${query}?: ` + intentos.some(el => el == query));
+})
+
+document.getElementById("every").addEventListener("click", () => {
+    let query = parseInt(prompt("Indique el numero de intentos que desea averiguar: "));
+    console.log(`todos los intentos fueron mayores a ${query}?: ` + intentos.every(el => el > query));
+})
+document.getElementById("filter").addEventListener("click", () => {
+    let query = parseInt(prompt("Indique el numero de intentos a obtener mayores a: "));
+    let newArray = intentos.filter(el => el > query);
+    if (newArray.length > 0) {
+        document.getElementById("pFilter").innerHTML = `intentos mayores a ${query}: [${newArray}]`;
+    }
+})
