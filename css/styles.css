@@ -1,0 +1,4 @@
+#lista2 > li{
+    display: flex;
+    justify-content: space-between;
+}
