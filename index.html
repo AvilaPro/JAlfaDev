@@ -12,6 +12,42 @@
 </head>
 
 <body>
+  <section style="margin: 300px 0;">
+    <h2>Formulario de Registro</h2>
+    <div class="row justify-content-center">
+      <form class="col-6 border border-3 p-3 border-primary rounded" action="" method="get" name="registerForm" onsubmit="return validarFormulario(this)">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" onblur="validarInput(this)">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password" onblur="validarInput(this)">
+        </div>
+        <select class="form-select" aria-label="Default select example" name="select" >
+          <option value="0">Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="terminos">
+          <label class="form-check-label" for="flexCheckDefault">
+            Aceptas los terminos y condiciones
+          </label>
+        </div>
+        <!-- <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div> -->
+        <button class="btn btn-primary" onclick="validarFomulario(this.form)" disabled>Enviar BTN</button>
+        <input type="submit" class="btn btn-success" value="Enviar(submit)">
+        <input onclick="validarFormulario(this.form)" type="button" value="Enviar(btn-js)" class="btn btn-secondary" disabled>
+      </form>
+    </div>
+  </section>
+
+
   <h1 style="text-align: center; text-decoration: underline;">Listado de clientes</h1>
   <hr>
   <div id="listado" class="container">
@@ -43,6 +79,8 @@
       </div>
     </div>
   </div>
+
+  
 
   <!-- Scripts de la aplicacion -->
   <script src="./js/main.js"></script>

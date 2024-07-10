@@ -88,3 +88,99 @@ function eliminarTr(el) {
     tabla.deleteRow(indiceFila);
   }
 }
+
+// function validarFormulario(form) {
+//   if (validarInput(form.email)) {
+//     alert("El campo de correo es obligatorio");
+//   }else{
+//     if (validarInput(form.password)) {
+//       alert("El campo de contraseña es obligatorio");
+//     }else{
+//       form.submit();
+//     }
+//   }
+// }
+
+// let typesInputs = ["text", "email", "password", "number"]
+
+// function validarFormulario(form) {
+//   for (let i = 0; i < form.length; i++) {
+//     if(form[i].tagName == "INPUT"){
+//       if (typesInputs.some(form[i].type)) {
+//         if(validarInput(form[i])){
+//           return false;
+//         }
+//       }
+//     }
+//   }
+// }
+
+let expregPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+function validarFormulario(form) {
+  if (validarInput(form.email)) {
+    alert("el correo es obligatorio");
+    return false;
+  }else{
+    if (!expregPassword.test(form.password.value)) {
+      alert("formato de clave invalido");
+      form.password.focus();
+      return false;
+    }else{
+      if(validarInput(form.password)){
+        alert("el password es obligatorio");
+        return false
+      }else{
+        if (validarSelect(form.select)) {
+          alert("Debes seleccionar algo");
+          return false;
+        }else{
+          if (validarCheckbox(form.terminos)) {
+            alert("Debes aceptar los terminos");
+            return false;
+          }else{
+            form.submit();
+            return true;
+          }
+        }
+      }
+    }
+  }
+}
+
+function validarInput(input) {
+  if (input.value == '') {
+    input.style.border = "red solid";
+    input.focus();
+    return true
+  }else{
+    input.style.border = "green solid"
+    return false;
+  }
+}
+
+function validarSelect(select) {
+  console.log(select);
+  if (select.value == '0') {
+    select.focus();
+    select.style.border = "red solid";
+    return true;
+  }else{
+    return false;
+  }
+}
+
+function validarCheckbox(checkbox) {
+  if (!checkbox.checked) {
+    checkbox.focus();
+    checkbox.style.border = "red solid";
+    return true;
+  }else{
+    return false;
+  }
+}
+
+function escucharSubmit() {
+  alert("Formulario enviado");
+}
