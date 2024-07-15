@@ -1,11 +1,13 @@
 let lista1 = document.getElementById("lista1");
 let lista2 = document.getElementById("lista2");
 let tabla = document.getElementById("tablaUsers");
+let listaUsuarios;
 
 fetch('https://jsonplaceholder.typicode.com/users')
   .then(response => response.json())
   .then(users => {
     console.log(users);
+    listaUsuarios = users;
     /**
      * Agregar elementos a un contenedor
      */
