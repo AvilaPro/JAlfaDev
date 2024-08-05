@@ -9,16 +9,17 @@
   <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
-  <h1 style="text-align: center;">El ahorcado</h1>
+  <h1 style="display: flex; justify-content: center;">El ahorcado <button id="btnCerrarSesion" class="btn btn-danger" onclick="cerrarSesion()">Cerrar sesion</button></h1>
   <h2 id="jugador"></h2>
   <h3 id="nivel"></h3>
+  <h4>Numero de fallos: <span id="fallos"></span></h4>
   <div class="container">
     <section class="row p-3" id="juego">
       <div class="col-6 h-75 d-flex align-items-center justify-content-center border-3 border border-primary border-3 rounded-3" id="palabra"></div>
       <div class="col-6 h-75 d-flex align-items-center justify-content-center border-3 border border-danger border-3 rounded-3" id="animacion"></div>
       <div class="col-12 h-25 d-flex justify-content-center py-3" id="entrada">
-        <input type="text" placeholder="Ingresa aqui tu letra...">
-        <button class="btn btn-success">Ingresar</button>
+        <input style="font-size: xx-large;" size="15" maxlength="1" type="text" placeholder="Ingresa aqui tu letra..." id="letra">
+        <button class="btn btn-success" id="btnSearchLetter">Ingresar</button>
       </div>
     </section>
 
