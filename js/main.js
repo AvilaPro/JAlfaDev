@@ -17,6 +17,8 @@ var cantidadLetrasPalabra
 var fallos = document.getElementById("fallos");
 //elemento html que contiene la animacion
 var animacion = document.getElementById("animacion");
+//variable que contendra el settimeout de la sesion
+var sessionTime;
 //Objeto JSON de las animaciones
 var animaciones = [
   {
@@ -61,7 +63,7 @@ var animaciones = [
   }
 ]
 var animaciones
-palabrasSecretas = [
+var palabrasSecretas = [
   //palabras de 4 letras
   ['gato',
     'pero',
@@ -167,23 +169,132 @@ class Juego {
   }
 }
 
+/***
+ * MODULOS O METODOS
+ * 
+ * 
+ */
+/**
+ * Metodo para cerrar Sesion
+ */
+document.getElementById('btnCerrarSesion').addEventListener('click', cerrarSesion);
+
+document.getElementById('btnIniciarSesion').addEventListener('click', iniciarSesion);
+
+function cerrarSesion() {
+  document.getElementById('btnCerrarSesion').style.display = 'none';
+  h2Jugador.innerHTML = '';
+  document.getElementById('btnIniciarSesion').style.display = 'block';
+  localStorage.removeItem('player');
+}
+
+async function iniciarSesion() {
+  // do {
+  //   var auxName = prompt('Ingrese su nombre...');
+  //   if (auxName == null || auxName == '') {
+  //     alert('DEBE INGRESAR UN NOMBRE DE JUGADOR')
+  //   }
+  // } while (auxName == null || auxName == '');
+
+  let auxName = await Swal.fire({
+    title: "Ingrese su nombre",
+    input: "text",
+    inputLabel: "Su nombre aqui...",
+    inputValue: '',
+    showCancelButton: false,
+    inputValidator: (value) => {
+      if (!value) {
+        return "Es obligatorio escribir un nombre!";
+      }
+    }
+  });
+
+  //Instancia del Jugador
+  jugador = new Jugador(auxName.value);
+  localStorage.setItem('player', JSON.stringify(jugador));
+  document.getElementById('btnIniciarSesion').style.display = 'none';
+  document.getElementById('btnCerrarSesion').style.display = 'block';
+  h2Jugador.innerHTML = `Bienvenido ${jugador.nombre} a nuestro juego`;
+  preguntarSesion();
+}
+
+function preguntarSesion() {
+  sessionTime = setTimeout(() => {
+    //se pregunta si deseamos mantener la sesion abierta
+    let timerInterval;
+    Swal.fire({
+      title: "Desea mantener su sesion abierta?",
+      html: "La sesion se cerrara automaticamente en <b></b> millisegundos.",
+      timer: 4000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const timer = Swal.getPopup().querySelector("b");
+        timerInterval = setInterval(() => {
+          timer.textContent = `${Swal.getTimerLeft()}`;
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+      showCancelButton: true,
+      cancelButtonText: 'Mantener la sesion',
+      cancelButtonColor: '#00a553'
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log("Se cerro el sweet alert de cerrar sesion por tiempo");
+        cerrarSesion();
+      }
+      if (result.dismiss === Swal.DismissReason.cancel) {
+        clearTimeout(sessionTime);
+        preguntarSesion();
+      }
+      if (result.dismiss === Swal.DismissReason.backdrop) {
+        clearTimeout(sessionTime);
+        preguntarSesion();
+      }
+    });
+  }, 5000);
+}
+
 /**
  * Logica para cuando el juego o la pagina recien carga.
  */
 //logica para manejo del jugador desde el localStorage
 if (localStorage.getItem('player') == undefined) {
+  document.getElementById('btnIniciarSesion').style.display = 'block';
   console.log('player no encontrado');
-  do {
-    var auxName = prompt('Ingrese su nombre...');
-    if (auxName == null || auxName == '') {
-      alert('DEBE INGRESAR UN NOMBRE DE JUGADOR')
+  // do {
+  //   var auxName = prompt('Ingrese su nombre...');
+  //   if (auxName == null || auxName == '') {
+  //     alert('DEBE INGRESAR UN NOMBRE DE JUGADOR')
+  //   }
+  // } while (auxName == null || auxName == '');
+
+  let auxName = await Swal.fire({
+    title: "Ingrese su nombre",
+    input: "text",
+    inputLabel: "Su nombre aqui...",
+    inputValue: '',
+    showCancelButton: false,
+    inputValidator: (value) => {
+      if (!value) {
+        return "Es obligatorio escribir un nombre!";
+      }
     }
-  } while (auxName == null || auxName == '');
+  });
+  console.log(auxName);
   //Instancia del Jugador
-  jugador = new Jugador(auxName);
+  jugador = new Jugador(auxName.value);
   localStorage.setItem('player', JSON.stringify(jugador));
-}else{
+  document.getElementById('btnIniciarSesion').style.display = 'none';
+  //Iniciamos sesion e iniciamos el primer setTimeOut que pregunta si deseamos mantener la sesion abierta
+  setTimeout(preguntarSesion, 5000);
+} else {
   jugador = JSON.parse(localStorage.getItem('player'));
+  //Si el jugador estaba configurado en el localStorage igual al cabo de N segundos preguntamos si desea mantener la sesion abierta.
+  setTimeout(preguntarSesion, 5000);
 }
 // var auxName = 'Eduardo';
 
@@ -226,26 +337,3 @@ btnSearch.addEventListener('click', () => {
  */
 // document.cookie = "userName=Eduardo; expires=Mon, 05 Aug 2024 21:32:00 UTC; path=/;";
 
-/**
- * Metodo para cerrar Sesion
- */
-function cerrarSesion(){
-  document.getElementById('btnCerrarSesion').style.display = 'none';
-  localStorage.removeItem('player');
-  h2Jugador.innerHTML = '<button id="btnIniciarSesion" class="btn btn-success" onclick="iniciarSesion()">Iniciar Sesion</button>';
-}
-
-function iniciarSesion() {
-  do {
-    var auxName = prompt('Ingrese su nombre...');
-    if (auxName == null || auxName == '') {
-      alert('DEBE INGRESAR UN NOMBRE DE JUGADOR')
-    }
-  } while (auxName == null || auxName == '');
-  //Instancia del Jugador
-  jugador = new Jugador(auxName);
-  localStorage.setItem('player', JSON.stringify(jugador));
-  document.getElementById('btnIniciarSesion').style.display = 'none';
-  document.getElementById('btnCerrarSesion').style.display = 'block';
-  h2Jugador.innerHTML = `Bienvenido ${jugador.nombre} a nuestro juego`;
-}
