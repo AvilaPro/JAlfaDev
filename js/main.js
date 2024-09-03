@@ -1,12 +1,13 @@
 var peliculas;
 fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=d5eb23ab03971c50b6ed148e54b3a717').then(response => response.json())
-.then(data => {
-    console.log(data);
-    peliculas = data.results;
-    //Iteramos el arreglo y creamos elementos.
-    let pelisContainer = document.getElementById("peliculas");
-    for (const peli of peliculas) {
-        pelisContainer.innerHTML += `
+    .then(data => {
+        console.log(`peticion fetch:`);
+        console.log(data);
+        peliculas = data.results;
+        //Iteramos el arreglo y creamos elementos.
+        let pelisContainer = document.getElementById("peliculas");
+        for (const peli of peliculas) {
+            pelisContainer.innerHTML += `
             <div class="card" style="width: 18rem; max-height: 70vh; margin: 15px 0;">
                 <img src=https://media.themoviedb.org/t/p/w220_and_h330_face/${peli.poster_path}" class="card-img-top" alt="peliImg" style="max-height:70%;">
                 <div class="card-body">
@@ -17,7 +18,43 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=
                 </div>
             </div>
         `
-    }
+        }
 
+    })
+    .catch(err => console.error(err));
+
+//Instancia del objeto XMLHttpRequest
+var xhtr = new XMLHttpRequest();
+//Peticion asincrona para conectarse con el backend de las peliculas
+setTimeout(() => {
+    url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=d5eb23ab03971c50b6ed148e54b3a717";
+    xhtr.open("GET", url, true);
+    xhtr.send();
+}, 1000);
+//Imprimir de forma asincrona los datos recibidos.
+xhtr.onreadystatechange = function () {
+    if (xhtr.readyState === 4 && xhtr.status === 200) {
+        var respuesta = JSON.parse(xhtr.responseText);
+        console.log(`peticion ajax:`);
+        console.log(respuesta);
+    }
+}
+
+/**
+ * Peticion AJAX con jQuery
+ */
+$.ajax({
+    url: 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=d5eb23ab03971c50b6ed148e54b3a717',
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+        console.log(`ajax con jquery:`);
+        console.log(data);
+    }
 })
-.catch(err => console.error(err));
+
+$('#h1').on("click", function() {
+    console.log("click en scrapping");
+    $('#webScrapping').load('#h1');
+    $.getScript('./js/alert.js');
+});
