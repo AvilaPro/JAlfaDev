@@ -16,7 +16,7 @@
     <h1 id="h1">Mi tienda de peliculas</h1>
     <main id="peliculas" class="d-flex flex-wrap justify-content-around">
     </main>
-    <section class="d-flex flex-column justify-content-center align-items-center py-5">
+    <section class="d-none flex-column justify-content-center align-items-center py-5">
         <form>
             <div class="mb-3">
                 <label for="userID" class="form-label">User ID</label>
@@ -26,7 +26,7 @@
         </form>
         <h1 id="nameUserId"></h1>
     </section>
-    <section class="d-flex flex-column justify-content-center align-items-center py-5">
+    <section class="d-none flex-column justify-content-center align-items-center py-5">
         <form id="formSerialize" action="">
             <div class="mb-3">
                 <label for="namename" class="form-label">Name</label>
@@ -43,10 +43,56 @@
             <input type="submit" value="Serializar">
         </form>
     </section>
+    <section id="formClase4" class="container">
+        <h2>Formulario de registro</h2>
+        <div class="row">
+            <form id="registerForm" action="">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input type="text" class="form-control" id="password" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone">
+                </div>
+                <div class="mb-3">
+                    <label for="emailRegister" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="emailRegister" name="email">
+                </div>
+                <input id="btnRegister" type="button" class="btn btn-success" value="Registrar" onclick="registrarUsuario(this.parentNode)">
+            </form>
+        </div>
+    </section>
+    <section id="loginForm" class="container">
+        <div class="row">
+            <form action="">
+                <div class="mb-3">
+                    <label for="emailLogin" class="form-label">email</label>
+                    <input type="text" class="form-control" id="emailLogin" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="PasswordLogin" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="PasswordLogin" name="password">
+                </div>
+                <input type="button" value="Iniciar Sesion" class="btn btn-success" onclick="iniciarSesion(this.parentNode)">
+            </form>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <button class="btn btn-secondary" onclick="consultarProductos()">Consultar Productos</button>
+        </div>
+    </div>
     <!-- Mis scripts -->
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/main.js"></script> -->
     <!-- Script agregado en la clase 3 -->
-    <script src="./js/code.js"></script>
+    <!-- <script src="./js/code.js"></script> -->
+    <!-- Script agregado en la clase 4 -->
+    <script src="./js/clase4.js"></script>
     <!-- Scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
