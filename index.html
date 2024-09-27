@@ -1,128 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/linkeado.css" media="screen">
+  <title>JS 2</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet" href="./css/style.css">
-  <title>JS ALFA</title>
 </head>
+
 <body>
   <header>
+    <figure>
+      <img onclick="alert('click en el logo')" src="./img/Telegram_logo.svg.webp" alt="">
+    </figure>
+    <nav>
+      <ul>
+        <li>Caracteristicas</li>
+        <li>Organizacion</li>
+        <li ondblclick="alert('aplicaciones')">Aplicaciones disponibles</li>
+      </ul>
+    </nav>
     <div>
-      <img src="./img/logo.png" alt="">
-    </div>
-    <div>
-      <div>
-        <ion-icon name="search" size="large"></ion-icon>
-        <span>Buscar</span>
-      </div>
-      <div>
-        <ion-icon name="heart-outline" size="large"></ion-icon>
-        <span>Lista deseos</span>
-      </div>
-      <div>
-        <ion-icon name="person" size="large"></ion-icon>
-        <span>Iniciar Sesion</span>
-      </div>
+      <span class="material-symbols-outlined" onclick="alert('Acceder a Settings')">
+        settings
+      </span>
+      <span class="material-symbols-outlined" onclick="prompt('Ingresa tu nombre')">
+        person
+      </span>
     </div>
   </header>
-  <section id="menu">
-    <div>
-      <ion-icon name="star" size="large"></ion-icon>
-      <p>Juegos</p>
-    </div>
-    <div>
-      <svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 30 30" class="pla-svg-icon main-navigation-icon"><path d="M28.235 20.294h-7.941v7.941A1.77 1.77 0 0 1 18.529 30h-7.058a1.77 1.77 0 0 1-1.765-1.765v-7.941H1.765A1.77 1.77 0 0 1 0 18.529v-7.058a1.77 1.77 0 0 1 1.765-1.765h7.941V1.765A1.77 1.77 0 0 1 11.471 0h7.059a1.77 1.77 0 0 1 1.765 1.765v7.941h7.941A1.77 1.77 0 0 1 30 11.471v7.059a1.77 1.77 0 0 1-1.765 1.764zM7.059 14.118h-3.53a.882.882 0 0 0 0 1.765h3.53a.882.882 0 0 0 0-1.765zm8.823-10.589a.882.882 0 1 0-1.765 0v3.53a.882.882 0 1 0 1.765 0zm0 19.412a.882.882 0 0 0-1.765 0v3.529a.882.882 0 1 0 1.765 0zm10.588-8.824h-3.529a.882.882 0 1 0 0 1.765h3.529a.882.882 0 0 0 0-1.765z"></path></svg>
-      <p>Hardware</p>
-    </div>
-    <div>
-      <svg style="width: 32px; height: 32px; position: relative; margin: 8px 8px 8px 8px; top: 1px; float: left;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-        <g class="nav-icon-switch"><path d="M18.9,32h4.9c4.5,0,8.2-3.7,8.2-8.2v0V8.2C32,3.7,28.3,0,23.8,0c0,0,0,0,0,0h-5c-0.1,0-0.2,0.1-0.2,0.2c0,0,0,0,0,0v31.6C18.6,31.9,18.7,32,18.9,32z M25,14.4c1.8,0,3.2,1.5,3.2,3.2c0,1.8-1.5,3.2-3.2,3.2c-1.8,0-3.2-1.4-3.2-3.2C21.7,15.8,23.2,14.4,25,14.4C25,14.4,25,14.4,25,14.4z M15.2,0h-7C3.7,0,0,3.7,0,8.2v15.6C0,28.3,3.7,32,8.2,32h7c0.1,0,0.2-0.1,0.2-0.2l0,0V0.2C15.4,0.1,15.3,0,15.2,0C15.2,0,15.2,0,15.2,0z M12.9,29.4H8.2c-3.1,0-5.6-2.5-5.6-5.6V8.2c0-3.1,2.5-5.6,5.6-5.6h4.6L12.9,29.4z M5,9.6c0,1.7,1.3,3,3,3s3-1.3,3-3s-1.3-3-3-3S5,7.9,5,9.6L5,9.6z"></path></g>
-        </svg>
-      <p>Nintendo Switch Online</p>
-    </div>
-    <div>
-      <ion-icon name="bag" size="large"></ion-icon>
-      <p>Nintendo eShop</p>
-    </div>
-    <div>
-      <svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1.3666666666666666666666666666667em" viewBox="0 0 41 30" class="pla-svg-icon main-navigation-icon"><path d="M31.742 8.257A15.455 15.455 0 0 0 17.95.001c-6.905 0-14.047 4.607-14.047 12.316a8.747 8.747 0 0 0 4.826 7.718 1.532 1.532 0 0 0 2-.671l2.647-4.947 1.916 3.76a1.54 1.54 0 0 0 2.739 0l1.9-3.738 2.589 4.916a1.537 1.537 0 1 0 2.718-1.434l-3.97-7.541a1.558 1.558 0 0 0-1.37-.821 1.533 1.533 0 0 0-1.356.838l-1.88 3.694-1.882-3.69a1.534 1.534 0 0 0-2.721-.026L8.83 16.401a5.4 5.4 0 0 1-1.854-4.086c0-5.781 5.579-9.236 10.978-9.236a12.512 12.512 0 0 1 11.463 7.374 1.543 1.543 0 0 0 1.488.874 1.349 1.349 0 0 1 .229 0h.123A6.624 6.624 0 0 1 35.8 22.633a6.6 6.6 0 0 1-4.75 1.937 6.5 6.5 0 0 1-3.659-1.161 1.531 1.531 0 0 0-1.885.009 16.937 16.937 0 0 1-22.793-1.99 1.54 1.54 0 1 0-2.352 1.986 20.033 20.033 0 0 0 14.807 6.587 19.874 19.874 0 0 0 11.344-3.5 9.912 9.912 0 0 0 4.531 1.156 9.666 9.666 0 0 0 9.763-9.775 9.756 9.756 0 0 0-9.067-9.62z"></path></svg>
-      <p>My Nintendo Store</p>
-    </div>
-    <div>
-      <ion-icon name="people" size="large"></ion-icon>
-      <p>Siguenos</p>
-    </div>
-    <div>
-      <p style="font-size: 36px; font-weight: bold; ">...</p>
-    </div>
-  </section>
-  <main>
-    <section id="products">
-      <div>
-        <!-- <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_Splatoon3_OutNow_esES.jpg" width="100%" height="100%" alt=""> -->
-      </div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div style="display: grid; width:100%; grid-template-columns: auto auto auto; grid-template-rows: 40vh 40vh 40vh 40vh;">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </section>
-    <section id="news">
-      <div id="titulo">
-        <div>ultimas noticias</div>
-      </div>
-      <div>
-        <div></div>
-        <div>
-          <h3>Destacados de Nintendo eShop – 22-09-2022</h3>
-          <span>22-09-2022  | Nintendo Switch
-          </span>
-          <p>¡Ya están aquí las novedades de Nintendo eShop de esta semana!</p>
-        </div>
-      </div>
-      <div>
-        <div></div>
-        <div>
-          <h3></h3>
-          <span></span>
-          <p></p>
-        </div>
-      </div>
-      <div>
-        <div></div>
-        <div>
-          <h3></h3>
-          <span></span>
-          <p></p>
-        </div>
-      </div>
-      <div>
-        <div></div>
-        <div>
-          <h3></h3>
-          <span></span>
-          <p></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- SCRIPTS DE IONICONS -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <main></main>
+  <footer></footer>
 </body>
+
 </html>
