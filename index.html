@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
-  <header>
+<body onclick="alert('click en el body')">
+  <header onclick="alert('click en el header')">
     <figure>
       <img onclick="alert('click en el logo')" src="./img/Telegram_logo.svg.webp" alt="">
     </figure>
@@ -23,16 +23,20 @@
       </ul>
     </nav>
     <div>
-      <span class="material-symbols-outlined" onclick="alert('Acceder a Settings')">
+      <span class="material-symbols-outlined" onclick="test(event)">
         settings
       </span>
-      <span class="material-symbols-outlined" onclick="prompt('Ingresa tu nombre')">
+      <span class="material-symbols-outlined" onclick="login()">
         person
       </span>
     </div>
   </header>
   <main></main>
   <footer></footer>
+
+  <!-- Mis Scripts -->
+   <script src="./js/validators.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
