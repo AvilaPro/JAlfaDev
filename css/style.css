@@ -52,4 +52,38 @@ header{
       }
     }
   }
+  /*FIN HEADER*/
 }
+/*MAIN*/
+main{
+  section{
+    height: 90vh;
+    &:nth-of-type(1){
+      background: rgb(23, 23, 196);
+    }
+    &:nth-of-type(2){
+      background: rgb(15, 173, 29);
+    }
+    &:nth-of-type(3){
+      background: rgb(218, 231, 34);
+    }
+    &:nth-of-type(4){
+      background: rgb(165, 40, 181);
+    }
+  }
+}
+#btnUp{
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  padding: 15px;
+  border-radius: 40px;
+  box-shadow: 0px 5px 7px #50fff6c2;
+  cursor: pointer;
+  transition: all 1s ease;
+  &:hover{
+    font-weight: bold;
+    transform: scale(1.1);
+  }
+}
+/*FIN MAIN*/
