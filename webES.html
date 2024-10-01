@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body onload="manejarApertura()">
   <header>
     <figure>
       <img onclick="alert('click en el logo')" src="./img/Telegram_logo.svg.webp" alt="">
@@ -32,7 +32,7 @@
       <span class="material-symbols-outlined">
         print
       </span>
-      <span class="material-symbols-outlined">
+      <span id="btnBack" class="material-symbols-outlined" onclick="window.history.back()">
         undo
       </span>
       <span class="material-symbols-outlined">
@@ -47,15 +47,24 @@
     <section>
         <h1>PAGINA WEB ES</h1>
     </section>
-    <section></section>
-    <section></section>
-    <section></section>
   </main>
   <footer></footer>
 
   <!-- Mis Scripts -->
+   <script>
+    function redimensionar() {
+      window.resizeTo((window.screen.availWidth / 2), (window.screen.availHeight / 2));
+      window.moveTo((screen.width / 3), (screen.height*0.2));
+    }
+    function manejarApertura() {
+            if (window.opener != null) {
+                document.body.innerHTML += '\n <button onclick="window.close()" style="background: red; color: white; border: none; padding: 10px; border-radius: 10px;">Cerrar</button><br><button onclick="window.opener.location=`https://avilapro.github.io`" style="background: green; color: white; border: none; padding: 10px; border-radius: 10px;">Cambiar index</button>'
+            }
+        }
+    redimensionar();
+   </script>
   <script src="./js/validators.js"></script>
-  <script src="./js/main.js"></script>
+  <!-- <script src="./js/main.js"></script> -->
 </body>
 
 </html>

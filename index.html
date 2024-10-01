@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body onscroll="scroll()">
   <header>
     <figure>
       <img onclick="alert('click en el logo')" src="./img/Telegram_logo.svg.webp" alt="">
@@ -23,31 +23,32 @@
       </ul>
     </nav>
     <div>
-      <span class="material-symbols-outlined" onclick="test(event)">
+      <span class="material-symbols-outlined" onclick="probarOpen()">
         settings
       </span>
       <span class="material-symbols-outlined" onclick="login()">
         person
       </span>
-      <span class="material-symbols-outlined" onclick="">
+      <span class="material-symbols-outlined" onclick="window.print()">
         print
       </span>
-      <span class="material-symbols-outlined" onclick="">
+      <span id="btnBack" class="material-symbols-outlined" onclick="window.history.back()">
         undo
       </span>
-      <span class="material-symbols-outlined" onclick="">
+      <span class="material-symbols-outlined" onclick="navegarEspanol()">
         language
       </span>
     </div>
   </header>
   <main>
-    <span class="material-symbols-outlined" id="btnUp" onclick="">
+    <span class="material-symbols-outlined" id="btnUp" onclick="window.scrollTo({top:0, left:0, behavior: 'smooth'})">
       shift
     </span>
-    <section></section>
-    <section></section>
-    <section></section>
-    <section></section>
+    <section>
+      <h2 id="bienvenida"></h2>
+      <h3>Personajes Rick and Morty</h3>
+      <div id="personajes"></div>
+    </section>
   </main>
   <footer></footer>
 

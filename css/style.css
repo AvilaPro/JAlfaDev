@@ -59,9 +59,13 @@ main{
   section{
     height: 90vh;
     &:nth-of-type(1){
-      background: rgb(23, 23, 196);
+      /* background: rgb(23, 23, 196); */
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    &:nth-of-type(2){
+    /* &:nth-of-type(2){
       background: rgb(15, 173, 29);
     }
     &:nth-of-type(3){
@@ -69,10 +73,11 @@ main{
     }
     &:nth-of-type(4){
       background: rgb(165, 40, 181);
-    }
+    } */
   }
 }
 #btnUp{
+  display: none;
   position: fixed;
   bottom: 25px;
   right: 25px;
@@ -86,4 +91,34 @@ main{
     transform: scale(1.1);
   }
 }
+#personajes{
+  display: flex;
+  padding: 0 5%;
+  flex-wrap: wrap;
+}
+.person{
+  width: 20vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  > img{
+    width: 90%;
+    height: 50%;
+    border: solid black 2px;
+    border-radius: 12px;
+  }
+  h4, p{
+    margin: 0;
+  }
+}
 /*FIN MAIN*/
+
+@media screen and (max-width: 600px){
+  #personajes{
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .person{
+    width: 80vw;
+  }
+}
