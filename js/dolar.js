@@ -7,7 +7,7 @@ then(data => {
     //Option BCV
     document.getElementById('BCV').innerHTML += data[0].promedio;
     document.getElementById('BCV').value = data[0].promedio;
-    //Option Paralelo
+    //Option Paralelo---
 })
 
 function calcular() {
