@@ -30,17 +30,32 @@
                     width: 100%;
                     display: flex;
                     flex-direction: column;
+                    >label{
+                        font-weight: bold;
+                        font-size: 1.5rem;
+                    }
                     > input{
                         height: 2em;
                         background: #00b65b56;
                         border: #17f835 solid 2px;
                         border-radius: 20px;
+                        color: white;
+                        font-weight: bold;
+                        font-size: 1.5em;
+                        padding: 0 1em;
+                        &:focus{
+                            box-shadow: 0 0 10px 5px #17f835 ;
+                        }
                     }
                     > select{
                         height: 2em;
                         background: #00b65b56;
                         border: #17f835 solid 2px;
                         border-radius: 20px;
+                        font-size: 1.5em;
+                        font-weight: bold;
+                        color: white;
+                        padding: 0 1em;
                     }
                 }
                 > button{
@@ -52,18 +67,44 @@
                     border: none;
                     border-radius: 25px;
                     width: 75%;
+                    font-size: 1.5em;
                 }
             }
+            .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #FF3D00;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
         }
     </style>
 </head>
 <body>
-    <h1>Conversion del Dolar</h1>
+    <div id="spinner" style="width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.919); position: absolute; top:0; left: 0; z-index: 100;">
+        <img id="spinner" src="./img/spinner.gif" alt="" style="position: absolute; top: 100px; right: 50%; height: 50vh; aspect-ratio: 1/1;">
+    </div>
+    <h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/United_States_one_dollar_bill%2C_obverse.jpg/250px-United_States_one_dollar_bill%2C_obverse.jpg" alt="">
+        Conversion del Dolar
+    </h1>
     <div id="container">
         <form action="" name="dolarForm" method="GET">
             <div>
                 <label for="cantDolar">Dolares</label>
-                <input id="cantDolar" name="cantDolar" type="text">
+                <input id="cantDolar" name="cantDolar" type="number">
             </div>
             <div>
                 <label for="tasaBs">Tasa $/Bs</label>
@@ -74,11 +115,14 @@
             </div>
             <div>
                 <label for="totalDolarABs">Total Conversion $/Bs</label>
-                <input id="totalDolarABs" name="totalDolarABs" type="text" disabled>
+                <input id="totalDolarABs" name="totalDolarABs" type="text" readonly>
             </div>
-            <button type="button" onclick="calcular()">Calcular</button>
+            <button style="display: none;" name="btnDolarForm" id="btnDolarForm" type="button" onclick="calcular()">Calcular</button>
         </form>
     </div>
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+      </div>
 
     <!-- Nuestro Script de conversion -->
     <script src="./js/dolar.js"></script>
