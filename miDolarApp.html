@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Dolar App</title>
+    <style>
+        body{
+            font-family: 'Segoe UI';
+            background-image: linear-gradient(to right top, #12c029, #00b65a, #00ab78, #009e8a, #008f8e, #00848b, #0a7986, #186e7f, #226477, #295b6d, #2d5163, #2f4858);
+            min-height: 100vh;
+            color: white;
+        }
+        h1{
+            text-align: center;
+        }
+        #container{
+            display: flex;
+            justify-content: center;
+            > form{
+                border: solid white 5px;
+                border-radius: 15px;
+                padding: 3em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                > div{
+                    margin: 1em 0;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    > input{
+                        height: 2em;
+                        background: #00b65b56;
+                        border: #17f835 solid 2px;
+                        border-radius: 20px;
+                    }
+                    > select{
+                        height: 2em;
+                        background: #00b65b56;
+                        border: #17f835 solid 2px;
+                        border-radius: 20px;
+                    }
+                }
+                > button{
+                    background-color: #17f835;
+                    color: #00848b;
+                    font-weight: bold;
+                    margin-top: 1em;
+                    padding: 1.5em;
+                    border: none;
+                    border-radius: 25px;
+                    width: 75%;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversion del Dolar</h1>
+    <div id="container">
+        <form action="" name="dolarForm" method="GET">
+            <div>
+                <label for="cantDolar">Dolares</label>
+                <input id="cantDolar" name="cantDolar" type="text">
+            </div>
+            <div>
+                <label for="tasaBs">Tasa $/Bs</label>
+                <select name="tasaBs" id="tasaBs">
+                    <option id="BCV" value="">Oficial: </option>
+                    <option id="Paralelo" value="">Paralelo: </option>
+                </select>
+            </div>
+            <div>
+                <label for="totalDolarABs">Total Conversion $/Bs</label>
+                <input id="totalDolarABs" name="totalDolarABs" type="text" disabled>
+            </div>
+            <button type="button" onclick="calcular()">Calcular</button>
+        </form>
+    </div>
+
+    <!-- Nuestro Script de conversion -->
+    <script src="./js/dolar.js"></script>
+</body>
+</html>
