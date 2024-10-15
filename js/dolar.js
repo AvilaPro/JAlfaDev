@@ -5,7 +5,16 @@
 //Agregar la logica para verificar que el input 'cantDolar' no este vacio para permitir hacer click en el.
 // document.dolarForm.cantDolar.addEventListener("change", habilitarBoton(document.dolarForm.btnDolarForm, validarInputVacio(document.getElementById('cantDolar'))));
 //document.dolarForm.cantDolar.onchange = //callback del evento
-document.getElementById('cantDolar').addEventListener('change', habilitarBoton);
+// document.getElementById('cantDolar').addEventListener('change', habilitarBoton);
+document.getElementById('cantDolar').addEventListener('change', function(){
+    console.log('llamado');
+    if (document.dolarForm.cantDolar.value == "") {
+        document.dolarForm.btnDolarForm.style.display = 'none';
+    }else{
+        document.dolarForm.btnDolarForm.style.display = 'block';
+        
+    }
+});
 // document.getElementById('cantDolar').onkeydown =  habilitarBoton(document.dolarForm.btnDolarForm, validarInputVacio(document.getElementById('cantDolar')))//callback
 
 window.onload = quitarSpinner;
