@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personajes</title>
+    <link rel="stylesheet" href="./css/personajes.css">
 </head>
 <body>
     <h1 style="text-align: center;">Personajes</h1>
     <div style="display: flex; justify-content: center;">
-        <input type="text" placeholder="Escribe tu filtro">
-        <button>Filtrar</button>
+        <select name="genero" id="genero">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <button id="filtrar">Filtrar</button>
     </div>
     <hr>
-    <main>
+    <main id="main">
 
     </main> 
     <!-- Mis scripts -->

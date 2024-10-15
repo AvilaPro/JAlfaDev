@@ -1,0 +1,19 @@
+main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.card{
+    max-height: 50vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    border: solid 2px black;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 10px 0;
+    > img{
+        height: 50%;
+        width: 100%;
+    }
+}
