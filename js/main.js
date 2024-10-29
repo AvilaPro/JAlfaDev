@@ -77,3 +77,35 @@ for (let i = 0; i < tabla.rows.length; i++) {
         console.log(tabla.rows[i].cells[j].innerHTML);
     }
 }
+
+/***
+ * CLASE 2
+ */
+function validarInputsTextForm(form) {
+    for (let i = 0; i < form.length - 1; i++) {
+        let element = form[i];
+        if (element.value == '') {
+            element.style.border = 'solid red 2px';
+            element.style.boxShadow = '0px 0px 10px red',
+            element.nextElementSibling.style.display = 'block';
+            return true;
+        }else{
+            element.style.border = '';
+            element.style.boxShadow = '';
+            element.nextElementSibling.style.display = 'none';
+        }
+    }
+    return false;
+}
+
+function enviarFormulario() {
+    loginForm.submit();
+}
+function manejarEnvio(ev) {
+    // ev.preventDefault();
+    if (!validarInputsTextForm(loginForm)) {
+        return true
+    }else{
+        return false
+    }
+}
