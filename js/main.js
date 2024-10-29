@@ -11,7 +11,7 @@ function registrar() {
     //         newElement.parentNode.removeChild(newElement);
     //     }
     // });
-    newElement.onclick = () =>{
+    newElement.onclick = () => {
         if (confirm("Deseas eliminarme?")) {
             newElement.parentNode.removeChild(newElement);
         }
@@ -47,11 +47,11 @@ function registrarEnTabla() {
     //insertamos la ultima (en este caso la primera y unica celda) con el nombre
     nuevaFila.insertCell(-1).innerHTML = info.value;
     //ciclo para generar las siguientes celdas con valores aleatorios
-    for (let i = 1; i < 3; i++){
+    for (let i = 1; i < 3; i++) {
         //local de celda recien creada
         nuevaCelda = nuevaFila.insertCell(-1);
         //asignacion de valor de la celda
-        nuevaCelda.innerText = Math.round(Math.random()*100);
+        nuevaCelda.innerText = Math.round(Math.random() * 100);
         //acumulamos el valor de la celda para luego usarlo
         acumulador += parseInt(nuevaCelda.innerText);
     }
@@ -82,18 +82,96 @@ for (let i = 0; i < tabla.rows.length; i++) {
  * CLASE 2
  */
 function validarInputsTextForm(form) {
-    for (let i = 0; i < form.length - 1; i++) {
+    let regExpEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let regExpPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+    for (let i = 0; i < form.length; i++) {
         let element = form[i];
-        if (element.value == '') {
-            element.style.border = 'solid red 2px';
-            element.style.boxShadow = '0px 0px 10px red',
-            element.nextElementSibling.style.display = 'block';
-            return true;
-        }else{
-            element.style.border = '';
-            element.style.boxShadow = '';
-            element.nextElementSibling.style.display = 'none';
+        if (element.tagName == 'INPUT' && element.type == 'text') {
+            if (element.value == '') {
+                element.style.border = 'solid red 2px';
+                element.style.boxShadow = '0px 0px 10px red',
+                element.nextElementSibling.style.display = 'block';
+                element.focus();
+                return true;
+            } else {
+                element.style.border = '';
+                element.style.boxShadow = '';
+                element.nextElementSibling.style.display = 'none';
+            }
         }
+        if (element.tagName == 'SELECT') {
+            if (element.value == '') {
+                element.style.border = 'solid red 2px';
+                element.style.boxShadow = '0px 0px 10px red',
+                element.nextElementSibling.style.display = 'block';
+                element.focus();
+                return true;
+            } else {
+                element.style.border = '';
+                element.style.boxShadow = '';
+                element.nextElementSibling.style.display = 'none';
+            }
+        }
+        if (element.tagName == 'INPUT' && element.type == 'checkbox') {
+            if (!element.checked) {
+                element.style.border = 'solid red 2px';
+                element.style.boxShadow = '0px 0px 10px red',
+                element.nextElementSibling.style.display = 'block';
+                element.focus();
+                return true;
+            } else {
+                element.style.border = '';
+                element.style.boxShadow = '';
+                element.nextElementSibling.style.display = 'none';
+            }
+        }
+        if (element.tagName == 'INPUT' && element.type == 'email') {
+            if (element.value == '') {
+                element.style.border = 'solid red 2px';
+                element.style.boxShadow = '0px 0px 10px red',
+                element.nextElementSibling.style.display = 'block';
+                element.focus();
+                return true;
+            } else {
+                if (regExpEmail.test(element.value)) {
+                    element.style.border = '';
+                    element.style.boxShadow = '';
+                    element.nextElementSibling.style.display = 'none';
+                } else {
+                    element.style.border = 'solid red 2px';
+                    element.style.boxShadow = '0px 0px 10px red',
+                    element.nextElementSibling.style.display = 'block';
+                    element.focus();
+                    return true
+                }
+
+            }
+        }
+        if (element.tagName == 'INPUT' && element.type == 'password') {
+            if (element.value == '') {
+                element.style.border = 'solid red 2px';
+                element.style.boxShadow = '0px 0px 10px red',
+                element.nextElementSibling.style.display = 'block';
+                element.focus();
+                return true;
+            } else {
+                if (regExpPassword.test(element.value)) {
+                    console.log('pasword correcto');
+                    element.style.border = '';
+                    element.style.boxShadow = '';
+                    element.nextElementSibling.style.display = 'none';
+                } else {
+                    console.log('pasword incorrecto');
+                    element.style.border = 'solid red 2px';
+                    element.style.boxShadow = '0px 0px 10px red',
+                    element.nextElementSibling.style.display = 'block';
+                    element.focus();
+                    return true
+                }
+
+            }
+        }
+
     }
     return false;
 }
@@ -105,7 +183,7 @@ function manejarEnvio(ev) {
     // ev.preventDefault();
     if (!validarInputsTextForm(loginForm)) {
         return true
-    }else{
+    } else {
         return false
     }
 }

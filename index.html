@@ -33,20 +33,39 @@
     </section>
     <section id="clase2" class="container mt-5">
         <div class="row">
-            <form onsubmit="return manejarEnvio(event)" action="" name="loginForm" method="get" class="border border-4 border-success rounded-3 p-4">
+            <form onsubmit="return manejarEnvio(event)" action="" name="loginForm" method="get" class="border border-4 border-success rounded-3 p-4" novalidate>
                 <div>
                     <label for="username" class="form-label">username</label>
                     <input type="text" id="username" placeholder="username..." name="username" class="form-control">
                     <div id="usernameError" class="form-text text-danger">El campo username no puede estar vacio</div>
                 </div>
                 <div>
+                    <label for="email" class="form-label">email</label>
+                    <input type="email" id="email" placeholder="email..." name="email" class="form-control">
+                    <div id="emailError" class="form-text text-danger">El campo email no puede estar vacio o el correo en el formato correcto</div>
+                </div>
+                <div>
                     <label for="password" class="form-label">password</label>
                     <input type="password" id="password" placeholder="password..." name="password" class="form-control">
-                    <div id="pwdError" class="form-text text-danger">El campo de password no debe quedar vacio</div>
+                    <div id="pwdError" class="form-text text-danger">No debe estar vacio y debe contener al menos una mayuscula una minuscula un numero y un caracter especial y tener entre 8 y 16 caracteres</div>
+                </div>
+                <div>
+                    <label for="city" class="form-label">City</label>
+                    <select name="city" id="city">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="1">Barquisimeto</option>
+                        <option value="2">Cabudare</option>
+                    </select>
+                    <div id="selectError" class="form-text text-danger">Debes seleccionar una ciudad</div>
+                </div>
+                <div>
+                    <label for="terminos" class="form-label">Acepto los terminos</label>
+                    <input type="checkbox" name="terminos" id="terminos">
+                    <div id="checkError" class="form-text text-danger">Debes aceptar los terminos</div>
                 </div>
                 <!-- Formas de enviar el formulario -->
-                <!-- <input type="submit" value="Iniciar Sesion"> -->
-                <button class="btn btn-success my-3">Iniciar Sesion</button>
+                <input type="submit" class="btn btn-primary" value="Iniciar Sesion">
+                <!-- <button class="btn btn-success my-3">Iniciar Sesion</button> -->
                  <!-- <input type="button" value="Iniciar Sesion" onclick="enviarFormulario()"> -->
             </form>
         </div>

@@ -1,6 +1,3 @@
-#usernameError{
-    display: none;
-}
-#pwdError{
+#usernameError, #pwdError, #selectError, #checkError, #emailError{
     display: none;
 }
