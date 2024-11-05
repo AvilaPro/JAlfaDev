@@ -39,7 +39,20 @@
     </header>
 
     <main>
-
+      <h1 id="welcome">Welcome <span id="userSpan"></span> <button class="btn btn-warning">animacion</button></h1>
+        <div id="loginForm" class="border border-success border-5 rounded-4 p-5 m-5">
+          <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="usernameInput" placeholder="Write your Username...">
+              <span style="color: red; display: none;">No puede quedar vacio</span>
+              <label for="usernameInput">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="passwordInput" placeholder="Write your password...">
+              <span style="color: red; display: none;">No puede quedar vacio</span>
+              <label for="passwordInput">Password</label>
+          </div>
+          <button class="btn btn-success">Login</button>
+        </div>
     </main>
 
     <!-- Script de Bootstrap -->
