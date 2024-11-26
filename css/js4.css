@@ -1,0 +1,12 @@
+#btnCart{
+    bottom: 25px;
+    right: 25px;
+    transition: all 1.5s ease;
+    ion-icon{
+        color: white;
+    }
+    &:hover{
+        cursor: pointer;
+        transform: translateY(-10px);
+    }
+}

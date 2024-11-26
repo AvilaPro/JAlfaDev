@@ -63,7 +63,13 @@ class Cart{
   }
 }
 //Instancia del carrito de compras
-cart = new Cart();
+if (localStorage.getItem("cart") != undefined) {
+  //se crea cart alimentado de lo almacenado en el localstorage
+  var cart = JSON.parse(localStorage.getItem("cart"))
+}else{
+  //Se crea una nueva instancia solo si no existe en el localstorage
+  cart = new Cart();
+}
 
 //Funcion utilitaria para el agregar al carrito de compra.
 function addBuy(el, id) {
@@ -85,4 +91,30 @@ function addBuy(el, id) {
     cart.productos.push(newBuy);
     console.log(cart);
   }
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+function mostrarCart() {
+  $("#modalBody").text("");
+  let articulosSeleccionados = [];
+  for (const seleccionados of cart.productos) {
+    let seleccionado = articulos.find((articulo) => articulo.id == seleccionados.id);
+    articulosSeleccionados.push(seleccionado);
+  }
+  console.log(articulosSeleccionados);
+  for (let i=0; i < articulosSeleccionados.length; i++) {
+    let tr = `
+      <tr>
+        <th scope="row">${i+1}</th>
+        <td>${articulosSeleccionados[i].title}</td>
+        <td>${articulosSeleccionados[i].price}</td>
+        <td>${cart.productos[i].cantidad}</td>
+      </tr>
+    `;
+    $("#modalBody").append(tr);
+  }
+}
+
+document.cookie = "username=jose; expires=Thu, 01 Jan 2025 00:00:00 UTC;";
+
+console.log(document.cookie);
