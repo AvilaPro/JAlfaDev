@@ -118,3 +118,34 @@ function mostrarCart() {
 document.cookie = "username=jose; expires=Thu, 01 Jan 2025 00:00:00 UTC;";
 
 console.log(document.cookie);
+
+// Variable del modal publicitario
+const myModal = new bootstrap.Modal(document.getElementById('modalBanner'));
+
+setTimeout(() => {
+  myModal.show()
+}, 3000)
+
+function closeBanner() {
+  Swal.fire({
+    title: "Te perderas esta oferta?",
+    text: "Aprovecha el 50% de descuento!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si quiero aprovecharlo!"
+  }).then((result) => {
+    console.log(result);
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Excelente!",
+        text: "El cupon se ha agregado a tu cuenta",
+        icon: "success"
+      });
+      myModal.hide();
+    }else{
+      myModal.hide();
+    }
+  });
+}
