@@ -4,14 +4,14 @@ var cart;
 
 $(document).ready(() => {
   fetch('https://fakestoreapi.com/products')
-  .then((res) => res.json())
-  .then((json) => {
-    articulos = json;
-    console.log(articulos);
-  })
-  .then(() => {
-    for (const producto of articulos) {
-      let card = `
+    .then((res) => res.json())
+    .then((json) => {
+      articulos = json;
+      console.log(articulos);
+    })
+    .then(() => {
+      for (const producto of articulos) {
+        let card = `
         <div class="card col-12 col-sm-4 col-lg-3">
           <img src="${producto.image}" class="card-img-top" alt="..." style="max-height: 40vh">
           <div class="card-body">
@@ -22,10 +22,10 @@ $(document).ready(() => {
           </div>
         </div>
       `
-      // $("#productos").append(card);
-      document.getElementById("productos").innerHTML += card;
-    }
-  })
+        // $("#productos").append(card);
+        document.getElementById("productos").innerHTML += card;
+      }
+    })
 })
 
 //Instanciacion del carrito de compras
@@ -51,14 +51,14 @@ $(document).ready(() => {
 /**
  * Definir la clase Cart
  */
-class ProductoSeleccionado{
-  constructor(id){
+class ProductoSeleccionado {
+  constructor(id) {
     this.id = id;
     this.cantidad = 1;
   }
 }
-class Cart{
-  constructor(){
+class Cart {
+  constructor() {
     this.productos = [];
   }
 }
@@ -66,7 +66,7 @@ class Cart{
 if (localStorage.getItem("cart") != undefined) {
   //se crea cart alimentado de lo almacenado en el localstorage
   var cart = JSON.parse(localStorage.getItem("cart"))
-}else{
+} else {
   //Se crea una nueva instancia solo si no existe en el localstorage
   cart = new Cart();
 }
@@ -81,12 +81,12 @@ function addBuy(el, id) {
     if (indiceBuscado != -1) {
       cart.productos[indiceBuscado].cantidad += 1;
       console.log("actualizacion ", cart.productos);
-    }else{
+    } else {
       let newBuy = new ProductoSeleccionado(id);
       cart.productos.push(newBuy);
       console.log(cart);
     }
-  }else{
+  } else {
     let newBuy = new ProductoSeleccionado(id);
     cart.productos.push(newBuy);
     console.log(cart);
@@ -102,10 +102,10 @@ function mostrarCart() {
     articulosSeleccionados.push(seleccionado);
   }
   console.log(articulosSeleccionados);
-  for (let i=0; i < articulosSeleccionados.length; i++) {
+  for (let i = 0; i < articulosSeleccionados.length; i++) {
     let tr = `
       <tr>
-        <th scope="row">${i+1}</th>
+        <th scope="row">${i + 1}</th>
         <td>${articulosSeleccionados[i].title}</td>
         <td>${articulosSeleccionados[i].price}</td>
         <td>${cart.productos[i].cantidad}</td>
@@ -144,8 +144,57 @@ function closeBanner() {
         icon: "success"
       });
       myModal.hide();
-    }else{
+    } else {
       myModal.hide();
     }
   });
+}
+
+//Temporizador de control de sesion
+let temporizador;
+function iniciarTemporizador() {
+  temporizador = window.setTimeout('intentarCerrarSesion()', 7000);
+}
+iniciarTemporizador();
+
+function intentarCerrarSesion() {
+  let timerInterval;
+  Swal.fire({
+    title: "Deseas mantener la sesion?",
+    html: "Se cerrará en <b></b> millisegundos.",
+    timer: 5000,
+    timerProgressBar: true,
+    cancelButtonColor: "#32e11a",
+    cancelButtonText: "Mantener Sesion",
+    showCancelButton: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const timer = Swal.getPopup().querySelector("b");
+      timerInterval = setInterval(() => {
+        timer.textContent = `${Swal.getTimerLeft()}`;
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    }
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("I was closed by the timer");
+      cerrarSesion();
+    }
+    if (result.dismiss === Swal.DismissReason.cancel) {
+      reiniciarTemporizador();
+    }
+  });
+}
+
+function cerrarSesion() {
+  clearTimeout(temporizador);
+  alert("Sesion cerrada");
+}
+
+function reiniciarTemporizador() {
+  clearTimeout(temporizador);
+  iniciarTemporizador();
 }
