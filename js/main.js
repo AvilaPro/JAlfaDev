@@ -198,3 +198,57 @@ function reiniciarTemporizador() {
   clearTimeout(temporizador);
   iniciarTemporizador();
 }
+
+let dias = [
+  "domingo",
+  "lunes",
+  "martes",
+  "miercoles",
+  "jueves",
+  "viernes",
+  "sabado"
+]
+
+let meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+let fechaActual = new Date();
+setInterval(() => {
+  fechaActual = new Date();
+  let seconds = fechaActual.getSeconds();
+  seconds = seconds.toString().padStart(2, "0");
+  document.getElementById("hora").innerText = `${fechaActual.getHours()}:${fechaActual.getMinutes()}:${seconds}`;
+}, 1000);
+
+console.log(fechaActual);
+
+let fechaFormateada = `Barquisimeto, ${dias[fechaActual.getDay()]} ${fechaActual.getDate()} de ${meses[fechaActual.getMonth()]} del ${fechaActual.getFullYear()}  `
+
+document.getElementById("fechaActual").innerHTML = fechaFormateada;
+
+let usuarios;
+
+
+fetch('https://jsonplaceholder.typicode.com/todos')
+  .then(res => res.json()
+  ).then(data => {
+    console.log(data);
+  }
+  );
+
+  fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())
+      .then(json => console.log(json))
+
+let miPromesa = new Promise((resolve, rejected) => {
+  if (confirm("Aceptas")) {
+    resolve("Has aceptado");
+  }else{
+    rejected("Has rechazado");
+  }
+});
+
+miPromesa.then((r) => {
+  console.log(r)
+}).catch((z) => {
+  console.log(z)
+})
+
