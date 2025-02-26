@@ -11,7 +11,7 @@
  
   <header>
     <img src="" alt="">
-    <button id="login">Iniciar</button>
+    <button id="login" onclick="loginPolicia()">Iniciar</button>
   </header>
   <main>
     <h1>Bienvenido <span>@</span></h1>
@@ -22,11 +22,12 @@
       </div>
       <div>
         <label for="ubicacion">Ubicacion:</label>
-        <input type="text" name="ubicacion" id="ubicacion">
+        <input onfocus="otraPrueba()" type="text" name="ubicacion" id="ubicacion">
       </div>
       <div>
         <label for="multa">Multa:</label>
-        <select name="multa" id="multa">
+        <select name="multa" id="multa" onchange="calcularMulta(document.getElementById('multa').value)">
+          <option value="0">Seleccione</option>
           <option value="1">Mal parado</option>
           <option value="2">Insolvente</option>
           <option value="3">Cinturon</option>
@@ -36,6 +37,8 @@
     </form>
   </main>
 
+  <!-- Nuestos scripts -->
+   <script src="./js/clase1.js"></script>
   <!-- SCRIPTS DE IONICONS -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
