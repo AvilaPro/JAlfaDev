@@ -65,8 +65,9 @@ function loginPolicia() {
     }
 }
 
-function calcularMulta(idMulta) {
-    let multaAPlicar = multas.filter((m) => m.id == idMulta);
+function calcularMulta(v) {
+    console.log(v);
+    let multaAPlicar = multas.filter((m) => m.id == v.target.value);
     alert(`La multa es: ${multaAPlicar[0].nombre}, por valor: ${multaAPlicar[0].costo}`);
 }
 
