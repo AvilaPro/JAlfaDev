@@ -79,3 +79,80 @@ function otraPrueba() {
     prueba();
     console.log(vari);
 }
+
+
+// CLASE 2
+let personajes;
+let auxSiguienteListaDePersonajes;
+
+// IR a pagina del Intt
+function irPaginaIntt() {
+    window.location.assign("https://www.intt.gob.ve/INTT/principal.htm");
+}
+
+function conocerIdioma(){
+    if (window.navigator.language == "es-ES") {
+        location.assign("./webES.html");
+    }else{
+        alert("Estas en ingles")
+    }
+}
+
+function getAllCharacters() {
+    fetch("https://rickandmortyapi.com/api/character").
+    then(
+        (res) => res.json()
+    ).then(
+        (data) => {
+            console.log(data);
+            personajes = data.results;
+            console.log(personajes);
+            auxSiguienteListaDePersonajes = data.info.next;
+        }
+    ).
+    then(() => {
+        mostrarPersonajes(personajes)
+    })
+}
+
+function obtenerMasPersonajes(url) {
+    fetch(url).
+    then((res) => res.json()).
+    then((data) => {
+        console.log(data);
+        personajes = data.results;
+        auxSiguienteListaDePersonajes = data.info.next;
+    }).
+    then(() => {
+        mostrarPersonajes(personajes);
+    })
+}
+
+function mostrarPersonajes(arrayPersonajes) {
+    let auxCard = '';
+    for (const pers of arrayPersonajes) {
+        auxCard += `
+            <div class="card col-3">
+            <img src="${pers.image}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${pers.name}</h5>
+                <p class="card-text">Especie: ${pers.species}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            </div>
+        `
+    }
+    document.getElementById("personajes").innerHTML += auxCard;
+}
+
+function scrollInfinito () {
+    if (window.scrollY == (document.body.scrollHeight - window.innerHeight)) {
+        obtenerMasPersonajes(auxSiguienteListaDePersonajes);
+    }
+}
+
+function manejarApertura() {
+    if(window.opener != null){
+        document.body.innerHTML += '\n <button onclick="window.close()" style="background: red; color: white; border: none; padding: 10px; border-radius: 10px;">Cerrar</button><br><button onclick="window.opener.location=`https://www.nintendo.es`" style="background: green; color: white; border: none; padding: 10px; border-radius: 10px;">Cambiar index</button>'
+    }
+}
