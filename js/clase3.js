@@ -1,0 +1,1 @@
+document.getElementById("btnSession").innerText = "Iniciar Sesion"
