@@ -12,32 +12,33 @@
 <body>
     <header>
         <nav class="navbar bg-dark border-bottom border-body px-5" data-bs-theme="dark">
-            <img src="./img/paladin-6539115_640.png" alt="" style="width: 70px; aspect-ratio: 1/1;">
-            <button class="btn btn-primary" id="btnSession"></button>
+            <img src="./img/paladin-6539115_640.png" alt="" style="width: 50px; aspect-ratio: 1/1;">
+            <button class="btn btn-primary" id="btnSession" ></button>
         </nav>
     </header>
     <main>
         <section class="row justify-content-center">
             <form id="loginForm" action="" name="loginForm" method="get"
-                class="col-4 p-4 border border-2 border-dark rounded mt-4 d-none">
+                class="col-4 p-4 border border-2 border-dark rounded mt-4" style="display: none;">
                 <h2 class="text-center">Login</h2>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-success" name="postLoginBtn">Iniciar</button>
+                <button type="button" class="btn btn-secondary">Registrarse</button>
             </form>
             <form id="registerForm" action="" name="registerForm" method="get"
-                class="col-4 p-4 border border-2 border-dark rounded mt-4 d-none">
+                class="col-4 p-4 border border-2 border-dark rounded mt-4" style="display: none;">
                 <h2 class="text-center">Register</h2>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -52,7 +53,7 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-success">Registrarse</button>
             </form>
         </section>
     </main>
