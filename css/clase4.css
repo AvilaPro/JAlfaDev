@@ -1,0 +1,21 @@
+.card{
+    max-height: 80vh;
+    margin: 2vh 0;
+    position: relative;
+    width: 22%;
+    & > img{
+        max-height: 50% !important;
+    }
+    & .card-title{
+        max-height: 30%;
+        overflow: hidden;
+    }
+    & .product-description{
+        max-height: 20%;
+        overflow: hidden;
+    }
+    & .buttonPrice{
+        position: absolute;
+        bottom: 5px;
+    }
+}
