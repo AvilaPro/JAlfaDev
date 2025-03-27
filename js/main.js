@@ -2,6 +2,14 @@
 var nombreValores = ["Dolar Paralelo", "Dolar Promedio", "Dolar Oficial"];
 var valoresDolar = [];
 let encabezadoTabla = ["fecha", "paralelo", "promedio", "oficial"];
+//array de datos fake son objetos con fecha, paralelo, promedio y oficial
+let datos = [
+    { fecha: "2022-01-01", paralelo: 1.5, promedio: 1.6, oficial: 1.7 },
+    { fecha: "2022-01-02", paralelo: 1.6, promedio: 1.7, oficial: 1.8 },
+    { fecha: "2022-01-03", paralelo: 1.7, promedio: 1.8, oficial: 1.9 },
+    { fecha: "2022-01-04", paralelo: 1.8, promedio: 1.9, oficial: 2.0 },
+    { fecha: "2022-01-05", paralelo: 1.9, promedio: 2.0, oficial: 2.1 },
+];
 //Obtener los datos del dolar desde dolarapi.com
 fetch("https://ve.dolarapi.com/v1/dolares").
     then((res) => res.json()).
@@ -81,17 +89,10 @@ var cargarHistorial = () => {
         tr.appendChild(thAux);
     }
     thead.appendChild(tr);
+
     //generar los datos de la tabla
-    //array de datos fake son objetos con fecha, paralelo, promedio y oficial
-    let datos = [
-        { fecha: "2022-01-01", paralelo: 1.5, promedio: 1.6, oficial: 1.7 },
-        { fecha: "2022-01-02", paralelo: 1.6, promedio: 1.7, oficial: 1.8 },
-        { fecha: "2022-01-03", paralelo: 1.7, promedio: 1.8, oficial: 1.9 },
-        { fecha: "2022-01-04", paralelo: 1.8, promedio: 1.9, oficial: 2.0 },
-        { fecha: "2022-01-05", paralelo: 1.9, promedio: 2.0, oficial: 2.1 },
-    ];
     //Agregar logica para agregar un objeto al array datos con nuevos aleatorios como un metodo de un boton que debe agregarse a la pagina
-    
+
 
     //con esos datos crear las siguientes filas de la tabla
     for (const dato of datos) {
@@ -99,12 +100,61 @@ var cargarHistorial = () => {
         for (const e of encabezadoTabla) {
             let tdAux = document.createElement("td");
             tdAux.innerText = dato[e];
-            trAux.appendChild(tdAux);
             //agregar logica para eliminar una fila
-
+            tdAux.onclick = function () {
+                this.parentNode.setAttribute("class", "warning");
+                setTimeout(() => {
+                    if (confirm("¿Desea eliminar el elemento?")) {
+                        this.parentNode.parentNode.removeChild(this.parentNode);
+                    } else {
+                        this.parentNode.setAttribute("class", "");
+                    }
+                }, 50);
+            }
+            trAux.appendChild(tdAux);
         }
         tabla.appendChild(trAux);
     }
     tabla.appendChild(thead);
+
+    //boton para agregar datos
+    let boton = document.createElement("button");
+    boton.innerText = "Agregar datos";
+    boton.onclick = agregarHistorial;
+
+    //agregamos la tabla
     app.appendChild(tabla);
+    //agregamos el boton
+    app.appendChild(boton);
+}
+
+var agregarHistorial = () => {
+    let tabla = document.getElementById("tabla");
+    //Crear un objeto con los datos
+    let nuevoDato = {
+        fecha: "2024-02-20",
+        paralelo: "1",
+        promedio: "85",
+        oficial: "80"
+    }
+    datos.push(nuevoDato);
+    let trAux = document.createElement("tr");
+    // crear td con los datos de nuevoDato
+    for (const e of encabezadoTabla) {
+        let tdAux = document.createElement("td");
+        tdAux.innerText = nuevoDato[e];
+        //agregar logica para eliminar una fila
+        tdAux.onclick = function () {
+            this.parentNode.setAttribute("class", "warning");
+            setTimeout(() => {
+                if (confirm("¿Desea eliminar el elemento?")) {
+                    this.parentNode.parentNode.removeChild(this.parentNode);
+                } else {
+                    this.parentNode.setAttribute("class", "");
+                }
+            }, 50);
+        }
+        trAux.appendChild(tdAux);
+    }
+    tabla.appendChild(trAux);
 }

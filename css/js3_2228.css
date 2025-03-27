@@ -21,3 +21,7 @@ ol{
         /* que los bordes se unan */
     }
 }
+.warning{
+    background-color: yellow;
+    color: black;
+}
