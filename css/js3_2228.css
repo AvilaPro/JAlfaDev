@@ -1,0 +1,23 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ol{
+    margin: 0 auto;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    width: 70vw;
+    & > li{
+        display: inline-block;
+    }
+}
+#tabla{
+    margin: 100px auto 0;
+    border: 3px solid rgb(16, 88, 16);
+    border-collapse: collapse;
+    & td, th{
+        border: 1px solid rgb(36, 122, 36);
+        padding: 10px;
+        /* que los bordes se unan */
+    }
+}
