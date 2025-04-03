@@ -108,9 +108,11 @@ var agregarCalculadora = () => {
     //Los inputs de la calculadora
     let dolar = document.createElement("input");
     dolar.setAttribute("id", "dolar");
+    dolar.setAttribute("name", "dolar");
     dolar.value = 1;
     let bs = document.createElement("input");
     bs.setAttribute("id", "bs");
+    bs.setAttribute("name", "bs");
     bs.value = valoresDolar[0];
 
     //El boton de la calculadora
@@ -218,14 +220,69 @@ var agregarHistorial = () => {
  * Metodo para calcular
  */
 function calcular() {
-    let dolar = parseFloat(document.getElementById("dolar").value);
-    let bs = parseFloat(document.getElementById("bs").value);
+    let dolar = calculadora.dolar;
+    let bs = calculadora.bs;
 
-    console.log(dolar);
-    console.log(bs);
+    // Realizamos la validación con expresiones regulares
+    if (validadorCampoVacio(dolar, "El campo dolar no puede quedar vacio") || !validadorFormatoNumero(dolar, "El campo Dolar debe ser un número válido")) {
+        return null;
+    } else {
+        if (validadorCampoVacio(bs, "El campo Bs no debe quedar vacio") || !validadorFormatoNumero(bs, "El campo Bs debe ser un número válido")) {
+            return null;
+        } else {
+            dolar = parseFloat(dolar.value.replace(",", ".")); // Reemplazar coma por punto para parseFloat
+            bs = parseFloat(bs.value.replace(",", ".")); // Reemplazar coma por punto para parseFloat
 
-    let valor = dolar * bs;
-    console.log(valor);
-    alert("El valor es: " + valor);
+            console.log(dolar);
+            console.log(bs);
+
+            let valor = dolar * bs;
+            console.log(valor);
+            alert("El valor es: " + valor);
+        }
+    }
 
 }
+
+/**
+ * Metodos para validar el formulario
+ */
+function validadorCampoVacio(campo, msg) {
+    if (campo.value == "") {
+        alert(msg);
+        campo.focus();
+        return true;
+    }else{
+        return false;
+    }
+}
+
+/**
+ * Validador de formato de número con expresión regular.
+ * Permite números enteros o decimales con un punto o una coma como separador decimal.
+ * @param {HTMLInputElement} campo El campo de entrada a validar.
+ * @param {string} msg El mensaje de error a mostrar si la validación falla.
+ * @returns {boolean} True si el formato es válido, false en caso contrario.
+ */
+function validadorFormatoNumero(campo, msg) {
+    // Expresión regular:
+    // ^           : Inicio de la cadena.
+    // [0-9]+      : Uno o más dígitos.
+    // (           : Inicio de un grupo de captura opcional.
+    // [.,]        : Un punto o una coma.
+    // [0-9]+      : Uno o más dígitos.
+    // )?          : Fin del grupo de captura opcional (el grupo completo puede aparecer 0 o 1 vez).
+    // $           : Fin de la cadena.
+    const regex = /^[0-9]+([.,][0-9]+)?$/;
+
+    if (!regex.test(campo.value)) {
+        alert(msg);
+        campo.focus();
+        campo.value = ""; // Limpiar el campo para que el usuario corrija
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// ... (resto del código) ...
