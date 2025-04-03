@@ -11,6 +11,44 @@ ol{
         display: inline-block;
     }
 }
+#calculadora{
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    border: green solid 3px;
+    border-radius: 25px;
+    width: 50vh;
+    align-items: center;
+    & > select{
+        border: none;
+        padding: 0.5em;
+        background-color: green;
+        color: white;
+        font-weight: bold;
+        width: 65%;
+        border-radius: 25px;
+    }
+    & > input{
+        width: 80%;
+        padding: .5em;
+        text-align: right;
+        border-width: 0 0 2px 0;
+        &:focus-visible{
+            outline: none;
+        }
+    }
+    & > button{
+        margin-top: 10px;
+        border: solid green 1px;
+        border-radius: 25px;
+        padding: 0.5em;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
 #tabla{
     margin: 100px auto 0;
     border: 3px solid rgb(16, 88, 16);

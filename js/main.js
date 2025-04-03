@@ -10,7 +10,11 @@ let datos = [
     { fecha: "2022-01-04", paralelo: 1.8, promedio: 1.9, oficial: 2.0 },
     { fecha: "2022-01-05", paralelo: 1.9, promedio: 2.0, oficial: 2.1 },
 ];
-//Obtener los datos del dolar desde dolarapi.com
+/**
+ * Bloque principal del codigo
+ * Obtener los datos del dolar desde dolarapi.com
+ * 
+ */
 fetch("https://ve.dolarapi.com/v1/dolares").
     then((res) => res.json()).
     then((data) => {
@@ -27,12 +31,15 @@ fetch("https://ve.dolarapi.com/v1/dolares").
 
         console.log(valoresDolar);
 
+        //Llamado de los metodos principales
         renderizado();
+        agregarCalculadora();
         cargarHistorial();
-        ;
     });
 
-
+/**
+ * Metodo para cargarel titulo y la primera lista de precios de cambios
+ */
 var renderizado = () => {
     console.log("Todo listo");
     //Seleccion del contenedor
@@ -75,6 +82,54 @@ var renderizado = () => {
     app.appendChild(lista);
 }
 
+/**
+ * Metodo para agregar el formulario de nuestra calculadora.
+ */
+var agregarCalculadora = () => {
+    //Seleccion del contenedor
+    let app = document.getElementById("app");
+    //Creamos el formulario
+    let formulario = document.createElement("form");
+    formulario.setAttribute("id", "calculadora");
+    formulario.setAttribute("method", "GET");
+    formulario.setAttribute("action", "#");
+    formulario.setAttribute("name", "calculadora");
+
+    //Creamos los elementos que van dentro del formulario
+    //Select del formulario
+    let select = document.createElement("select");
+    //Creamos los options del select
+    for (const nombre of nombreValores) {
+        let optAux = document.createElement("option");
+        optAux.innerText = nombre
+        select.appendChild(optAux);
+    }
+
+    //Los inputs de la calculadora
+    let dolar = document.createElement("input");
+    dolar.setAttribute("id", "dolar");
+    dolar.value = 1;
+    let bs = document.createElement("input");
+    bs.setAttribute("id", "bs");
+    bs.value = valoresDolar[0];
+
+    //El boton de la calculadora
+    let btn = document.createElement("button");
+    btn.setAttribute("type", "button");
+    btn.innerHTML = "Calcular";
+    btn.setAttribute("onclick", "calcular()");
+
+    formulario.appendChild(select);
+    formulario.appendChild(dolar);
+    formulario.appendChild(bs);
+    formulario.appendChild(btn);
+
+    app.appendChild(formulario);
+}
+
+/**
+ * Metodo para cargarla tabla de historial
+ */
 var cargarHistorial = () => {
     //Seleccion del contenedor
     let app = document.getElementById("app");
@@ -157,4 +212,20 @@ var agregarHistorial = () => {
         trAux.appendChild(tdAux);
     }
     tabla.appendChild(trAux);
+}
+
+/**
+ * Metodo para calcular
+ */
+function calcular() {
+    let dolar = parseFloat(document.getElementById("dolar").value);
+    let bs = parseFloat(document.getElementById("bs").value);
+
+    console.log(dolar);
+    console.log(bs);
+
+    let valor = dolar * bs;
+    console.log(valor);
+    alert("El valor es: " + valor);
+
 }
