@@ -91,51 +91,78 @@ var agregarCalculadora = () => {
     let app = document.getElementById("app");
     //Creamos el formulario
     let formulario = document.createElement("form");
-    formulario.setAttribute("id", "calculadora");
-    formulario.setAttribute("method", "GET");
-    formulario.setAttribute("action", "#");
-    formulario.setAttribute("name", "calculadora");
+    // formulario.setAttribute("id", "calculadora");
+    // formulario.setAttribute("method", "GET");
+    // formulario.setAttribute("action", "#");
+    // formulario.setAttribute("name", "calculadora");
 
     //Creamos los elementos que van dentro del formulario
     //Select del formulario
     let select = document.createElement("select");
-    select.setAttribute("id", "selectPrice");
+    // select.setAttribute("id", "selectPrice");
     //Creamos los options del select
     let auxIndex = 0;
     for (const nombre of nombreValores) {
         let optAux = document.createElement("option");
-        optAux.setAttribute("value", auxIndex);
-        optAux.innerText = nombre
-        select.appendChild(optAux);
+        // optAux.setAttribute("value", auxIndex);
+        // optAux.innerText = nombre
+        $(optAux).text(nombre);
+        $(optAux).attr("value", auxIndex);
+        $(select).append( optAux);
         auxIndex++;
     }
 
     //Los inputs de la calculadora
     let dolar = document.createElement("input");
-    dolar.setAttribute("id", "dolar");
-    dolar.setAttribute("name", "dolar");
+    // dolar.setAttribute("id", "dolar");
+    // dolar.setAttribute("name", "dolar");
+    $(dolar).attr({
+        id: "dolar",
+        name: "dolar"
+    })
     dolar.value = 1;
     let bs = document.createElement("input");
-    bs.setAttribute("id", "bs");
-    bs.setAttribute("name", "bs");
-    bs.value = valoresDolar[0];
+    // bs.setAttribute("id", "bs");
+    // bs.setAttribute("name", "bs");
+    $(bs).attr({
+        id: "bs",
+        name: "bs"
+    })
+    // bs.value = valoresDolar[0];
+    $(bs).val(valoresDolar[0]);
 
     //El boton de la calculadora
     let btn = document.createElement("button");
-    btn.setAttribute("type", "button");
+    // btn.setAttribute("type", "button");
     btn.innerHTML = "Calcular";
-    btn.setAttribute("onclick", "calcular()");
+    // btn.setAttribute("onclick", "calcular()");
+    $(btn).attr({
+        type: "button",
+        onclick: "calcular()"
+    });
+    $(btn).text("Calcular");
 
-    formulario.appendChild(select);
-    formulario.appendChild(dolar);
-    formulario.appendChild(bs);
-    formulario.appendChild(btn);
+    $(formulario).append(select);
+    $(formulario).append(dolar);
+    $(formulario).append(bs);
+    $(formulario).append(btn);
 
-    app.appendChild(formulario);
+    $(app).append(formulario);
 
+    //Configurar atributos del formulario
+    $("#app > form:first-of-type").attr({
+        id: "calculadora",
+        method: "GET",
+        action: "#",
+        name: "calculadora"
+    })
+
+    $("#app > form:first-of-type select").attr("id", "selectPrice");
+    
     //Se agrega el manejador de eventos para el select de la calculadora con jQuery
     $( "#selectPrice" ).on( "change", function() {
-        document.getElementById("bs").value = valoresDolar[parseInt($("select").val())];
+        $("#bs").val(valoresDolar[parseInt($("select").val())]);
+        // document.getElementById("bs").value = valoresDolar[parseInt($("select").val())];
     } );
 }
 
