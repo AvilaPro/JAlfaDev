@@ -58,6 +58,7 @@ var renderizado = () => {
 
     //Crear la lista de precios del dolar
     let lista = document.createElement("ol");
+    lista.setAttribute("id", "olPrecios");
 
     //creamos contador utilitario
     let index = 0;
@@ -98,11 +99,15 @@ var agregarCalculadora = () => {
     //Creamos los elementos que van dentro del formulario
     //Select del formulario
     let select = document.createElement("select");
+    select.setAttribute("id", "selectPrice");
     //Creamos los options del select
+    let auxIndex = 0;
     for (const nombre of nombreValores) {
         let optAux = document.createElement("option");
+        optAux.setAttribute("value", auxIndex);
         optAux.innerText = nombre
         select.appendChild(optAux);
+        auxIndex++;
     }
 
     //Los inputs de la calculadora
@@ -127,6 +132,11 @@ var agregarCalculadora = () => {
     formulario.appendChild(btn);
 
     app.appendChild(formulario);
+
+    //Se agrega el manejador de eventos para el select de la calculadora con jQuery
+    $( "#selectPrice" ).on( "change", function() {
+        document.getElementById("bs").value = valoresDolar[parseInt($("select").val())];
+    } );
 }
 
 /**
@@ -252,7 +262,7 @@ function validadorCampoVacio(campo, msg) {
         alert(msg);
         campo.focus();
         return true;
-    }else{
+    } else {
         return false;
     }
 }
@@ -285,4 +295,9 @@ function validadorFormatoNumero(campo, msg) {
     }
 }
 
-// ... (resto del código) ...
+/**
+ * Uso de jQuery
+ */
+$(document).ready(() => {
+    console.log("Estoy listo para iniciar con jQuery");
+});
