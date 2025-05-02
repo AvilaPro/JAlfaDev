@@ -10,6 +10,8 @@ let datos = [
     { fecha: "2022-01-04", paralelo: 1.8, promedio: 1.9, oficial: 2.0 },
     { fecha: "2022-01-05", paralelo: 1.9, promedio: 2.0, oficial: 2.1 },
 ];
+let unidades = ["Bolivares", "Dolares"];
+let simbolosUnidades = ["Bs.D.", "$"];
 /**
  * Bloque principal del codigo
  * Obtener los datos del dolar desde dolarapi.com
@@ -91,6 +93,9 @@ var agregarCalculadora = () => {
     let app = document.getElementById("app");
     //Creamos el formulario
     let formulario = document.createElement("form");
+
+    let resultado = document.createElement("h1");
+    // $(resultado).css("display", "none");
     // formulario.setAttribute("id", "calculadora");
     // formulario.setAttribute("method", "GET");
     // formulario.setAttribute("action", "#");
@@ -147,7 +152,10 @@ var agregarCalculadora = () => {
     $(formulario).append(bs);
     $(formulario).append(btn);
 
-    $(app).append(formulario);
+    $(app).append(formulario); //agregamos el formulario
+
+    $(app).append(resultado); //agregamos el elemento que contendra el resultado.
+    // $(resultado).slideUp();
 
     //Configurar atributos del formulario
     $("#app > form:first-of-type").attr({
@@ -275,7 +283,27 @@ function calcular() {
 
             let valor = dolar * bs;
             console.log(valor);
-            alert("El valor es: " + valor);
+            // alert("El valor es: " + valor);
+            $("#calculadora + h1").text(() => {
+                return "El valor es: " + valor;
+            }).css({
+                "color": "green",
+                "text-align": "center",
+                "position": "relative"
+            }).animate({
+                left: "+=250px",
+                top: "+=-100px"
+            },3000);
+            setTimeout(() => {
+                $("#calculadora + h1").slideUp(2000, ()=>{
+                    $("#calculadora + h1").animate({
+                        left: "-=250px",
+                        top: "-=-100px"
+                    }).text(() => {
+                        return "";
+                    }).slideDown()
+                });
+            }, 5000)
         }
     }
 
