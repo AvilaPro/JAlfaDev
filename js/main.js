@@ -62,10 +62,22 @@ function Libro(titulo, autor, anio, isbn, stock) {
 let l1 = new Libro("Libro 1", "Autor 1", 2000, 1, 20);
 let l2 = new Libro("Libro 2", "Autor 2", 2000, 2, 0);
 
+let l3 = {
+    titulo: "Libro 3",
+    autor: "Autor 3",
+    anio: 2000,
+    isbn: 3,
+    stock: 10,
+    informarDisponilidad: () => {
+        console.log("hacer algo");
+    }
+}
 let libros = [];
 
 libros.push(l1);
 libros.push(l2);
+libros.push(l3);
+
 
 console.log(libros);
 
@@ -116,3 +128,14 @@ class Usuario {
 
 //Instanciar un usuario
 let e = new Usuario(123, "Eduardo");
+
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(json => {
+        console.log(json);
+        console.log(JSON.stringify(json[0]));
+        //guardar en el localstorage
+        localStorage.setItem("usuario", JSON.stringify(json[0]));
+
+    })
+
