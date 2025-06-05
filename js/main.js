@@ -139,3 +139,115 @@ fetch('https://jsonplaceholder.typicode.com/users')
 
     })
 
+/**
+ * Clase 3
+ */
+let nombre;
+
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger"
+    },
+    buttonsStyling: false
+});
+
+// Swal.fire({
+//     title: "Ingresa",
+//     input: "text",
+//     showCancelButton: true,
+//     confirmButtonText: "Iniciar",
+//     showLoaderOnConfirm: true,
+//     preConfirm: (login) => {
+//         nombre = login;
+//         console.log(login)
+//         return login;
+//     }
+// }).then((result) => {
+//     console.log(result)
+//     if (result.isConfirmed) {
+//         Swal.fire({
+//             title: `Bienvenido ${result.value}`,
+//             timer: 2000,
+//             html: "<b></b>",
+//             timerProgressBar: true,
+//             didOpen: () => {
+//                 Swal.showLoading();
+//                 const timer = Swal.getPopup().querySelector("b");
+//                 timerInterval = setInterval(() => {
+//                     timer.textContent = `${Swal.getTimerLeft()}`;
+//                 }, 100);
+//             },
+//             willClose: () => {
+//                 clearInterval(timerInterval);
+//             }
+//         });
+//     } else if (
+//         /* Read more about handling dismissals below */
+//         result.dismiss === Swal.DismissReason.cancel
+//     ) {
+//         swalWithBootstrapButtons.fire({
+//             title: "Cancelled",
+//             text: "No quisiste loguearte",
+//             icon: "error"
+//         });
+//     }
+// })
+
+var setTime;
+var Interval;
+var ctrlBool = true;
+
+function iniciarIntervalo() {
+    if (ctrlBool) {
+        Interval = setInterval(() => {
+            //llamado del segundo setTimeout
+            setTime = setTimeout(() => {
+                swalWithBootstrapButtons.fire({
+                    title: "Time Over",
+                    text: "Se te acabo el tiempo",
+                    icon: "error"
+                });
+                ctrlBool = false;
+            }, 6000);
+        
+            Swal.fire({
+                title: "Deseas mantener tu sesion abierta?",
+                text: "!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                    clearInterval(setTime);
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    clearInterval(setTime);
+                    ctrlBool= false;
+                    swalWithBootstrapButtons.fire({
+                        title: "Cancelled",
+                        text: "Your imaginary file is safe :)",
+                        icon: "error"
+                    });
+                }
+            });
+            clearInterval(Interval)
+        }, 5000)
+    }
+}
+
+iniciarIntervalo();
+
+window.addEventListener("mousemove", () => {
+    clearInterval(Interval);
+    iniciarIntervalo();
+})
