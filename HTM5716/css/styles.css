@@ -1,0 +1,209 @@
+/* REGLAS GLOBALES */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    height: 100vh;
+    margin: 0;
+}
+
+/* SUPPPORT BTN */
+#support {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0076DF;
+    color: white;
+    padding: 15px;
+    border: solid 1px transparent;
+    border-radius: 50%;
+    z-index: 1000;
+
+    &:hover {
+        background: transparent;
+        color: #0076DF;
+        border: solid 1px #0076DF;
+        cursor: pointer;
+    }
+}
+
+/* HEADER */
+header {
+    background: rgba(255, 255, 255, 0.967);
+    height: 10vh;
+    font-size: .8em;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+}
+
+#divContainerHeader {
+    width: 80vw;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.divsHeader {
+    display: inline-block;
+    margin: 0 1.5vw;
+    height: 100%;
+    float: left;
+    position: relative;
+    top: 3.5vh;
+}
+
+/* FIN HEADER */
+/* MAIN */
+.iphone {
+    position: relative;
+    height: 110vh;
+}
+
+.divIphone {
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    width: 40vw;
+    left: 30vw;
+}
+
+.h1Iphone {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.h2Iphone {
+    text-align: center;
+    font-weight: 400;
+    font-size: 35px;
+    margin: 5px 0;
+}
+
+.btnsContainerIphone {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.firstBtnIphone {
+    margin-right: 2.5vw;
+    background: #0076DF;
+    color: white;
+    padding: 10px 20px;
+    border: solid 1px transparent;
+    border-radius: 20px;
+
+    &:hover {
+        background: transparent;
+        color: #0076DF;
+        border: solid 1px #0076DF;
+        cursor: pointer;
+    }
+}
+
+.secondBtnIphone {
+    background: transparent;
+    color: #0076DF;
+    padding: 10px 20px;
+    border: solid 1px #0076DF;
+    border-radius: 20px;
+
+    &:hover {
+        background: #0076DF;
+        color: white;
+        border: solid 1px transparent;
+        cursor: pointer;
+    }
+}
+
+.imgIphone {
+    width: 100%;
+    height: 60%;
+}
+
+/*Segunda Seccion de Main*/
+main > section{
+    margin: 15px 0;
+    background: #F5F5F7;
+}
+
+main>section:nth-child(1){
+    margin-top: 0;
+}
+
+
+main>section:nth-child(2) {
+    height: 110vh;
+    position: relative;
+    background-image: url("https://www.apple.com/v/home/cm/images/heroes/macbook-neo/hero_macbook_neo__gnm3snkti4a6_large.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+
+    &>div {
+        height: 100vh;
+        position: absolute;
+        bottom: 0;
+        width: 40vw;
+        left: 30vw;
+
+        &>h1 {
+            text-align: center;
+            margin: 5px 0;
+            font-size: 55px;
+            font-weight: 600;
+        }
+
+        &>h2 {
+            text-align: center;
+            font-weight: 400;
+            font-size: 35px;
+            margin: 5px 0;
+        }
+
+        &>div {
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+
+            &>button {
+                padding: 10px 20px;
+                border: solid 1px #0076DF;
+                border-radius: 20px;
+
+                &:first-child {
+                    background: #0076DF;
+                    color: white;
+
+                    &:hover {
+                        background: transparent;
+                        color: #0076DF;
+                        cursor: pointer;
+                    }
+                }
+
+                &:last-child {
+                    background: transparent;
+                    color: #0076DF;
+
+                    &:hover {
+                        background: #0076DF;
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+    }
+
+    
+
+}
+
+/* FIN MAIN */

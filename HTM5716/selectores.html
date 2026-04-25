@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1,h2,h3{
+            height: 75px;width: 300px;
+            border: solid 3px black;
+            margin: 15px 0;
+        }
+        /* h3 + h1{
+            background-color: brown;
+        } */
+        /* h1 + h2{
+            background-color: blueviolet;
+        } */
+        /* h1[id*="titulo"]{
+            background-color: aqua;
+        } */
+        /* div h1:nth-child(4){
+            background-color: black;
+        } */
+        h1[id="subtitulo"] li:nth-child(2n){
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- Elemento HTML son objetos -->
+        <!-- Todos los objetos tienen atributos y metodos -->
+        <h1 id="titulo">h1
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+        </h1>
+        <h2 class="capitulo">h2</h2>
+        <h3 class="contenido">
+            h3
+            <div>
+                <p>una p en h3</p>
+                <h1>h1 en h3</h1>
+            </div>
+        </h3>
+        <h1 id="subtitulo">h1
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+        </h1>
+        <h2 class="capitulo">h2</h2>
+    </div>
+</body>
+</html>
